@@ -30,5 +30,17 @@ public class ChallengeTest {
     }
 
 
+    // Consecutive Numbers
+    @Test
+    public void testIfConsWorks() {
+        assertTrue(Challenge.consecutive(new int[]{5, 1, 4, 3, 2}));
+        assertTrue(Challenge.consecutive(new int[]{55, 59, 58, 56, 57}));
+        assertTrue(Challenge.consecutive(new int[]{-3, -2, -1, 1, 0}));
+        assertFalse(Challenge.consecutive(new int[]{5, 1, 4, 3, 2, 8}));
+        assertFalse(Challenge.consecutive(new int[]{5, 6, 7, 8, 9, 9}));
+        assertFalse(Challenge.consecutive(new int[]{5, 3}));
+    }
+
+
 
 }

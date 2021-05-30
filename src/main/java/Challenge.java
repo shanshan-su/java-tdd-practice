@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Challenge {
 //    How Many Solutions Does This Quadratic Have?
 //A quadratic equation a x² + b x + c = 0 has either 0, 1, or 2 distinct solutions for real values of x. Given a, b and c, you should return the number of solutions to the equation.
@@ -58,6 +60,35 @@ public class Challenge {
             return sumOfOdd - sumOfEven;
         }
     }
+
+    // Consecutive Numbers
+    // Create a function that determines whether elements in an array can be re-arranged to form a consecutive list of numbers where each number appears exactly once.
+    //
+    //Examples
+    //cons([5, 1, 4, 3, 2]) ➞ true
+    //// Can be re-arranged to form [1, 2, 3, 4, 5]
+    //
+    //cons([5, 1, 4, 3, 2, 8]) ➞ false
+    //
+    //cons([5, 6, 7, 8, 9, 9]) ➞ false
+    //// 9 appears twice
+    public static boolean consecutive(int[] ints) {
+        Arrays.sort(ints);
+
+        for (int number : ints) {
+            System.out.print(number);
+        }
+
+        boolean isConsecutive = true;
+        for (int i = 0; i <= ints.length - 2; i++) {
+            if (ints[i + 1] - ints[i] != 1) {
+                isConsecutive = false;
+                break;
+            }
+        }
+        return isConsecutive;
+    }
+
 }
 
 
