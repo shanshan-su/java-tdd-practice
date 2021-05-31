@@ -49,6 +49,16 @@ public class ChallengeTest {
         assertEquals("Boom!", Challenge.sevenBoom(new int[]{35, 4, 9, 37}));
     }
 
+    // Phone Number Word Decoder
+    @Test
+    public void testIfTextToNumWorks() {
+        assertEquals("123-647-3937", Challenge.textToNum("123-647-EYES"));
+        assertEquals("(325)444-8378", Challenge.textToNum("(325)444-TEST"));
+        assertEquals("653-879-8447", Challenge.textToNum("653-TRY-THIS"));
+        assertEquals("435-224-7613", Challenge.textToNum("435-224-7613"));
+        assertEquals("(333)668-3245", Challenge.textToNum("(33D)ONT-FAIL"));
+        assertEquals("(025)445-6741", Challenge.textToNum("(025)445-6741"));
+    }
 
 
 }

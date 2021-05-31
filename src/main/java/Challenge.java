@@ -115,6 +115,56 @@ public class Challenge {
         return "there is no 7 in the array";
     }
 
+    // Phone Number Word Decoder
+    // Create a program that converts a phone number with letters to one with only numbers.
+    //
+    //Number	Letter
+    //0	none
+    //1	none
+    //2	ABC
+    //3	DEF
+    //4	GHI
+    //5	JKL
+    //6	MNO
+    //7	PQRS
+    //8	TUV
+    //9	WXYZ
+    //Examples
+    //textToNum("123-647-EYES") ➞ "123-647-3937"
+    //
+    //textToNum("(325)444-TEST") ➞ "(325)444-8378"
+    //
+    //textToNum("653-TRY-THIS") ➞ "653-879-8447"
+    //
+    //textToNum("435-224-7613") ➞ "435-224-7613"
+    //Notes
+    //All inputs will be formatted as a string representing a proper phone number in the format XXX-XXX-XXXX or (XXX)XXX-XXXX, using numbers and capital letters.
+    public static String textToNum(String text) {
+        String[] textArr = text.split("(?!^)");
+
+        for (String letter : textArr) {
+            if ("ABC".contains(letter)) {
+                letter = "2";
+            } else if ("DEF".contains(letter)) {
+                letter = "3";
+            } else if ("GHI".contains(letter)) {
+                letter = "4";
+            } else if ("JKL".contains(letter)) {
+                letter = "5";
+            } else if ("MNO".contains(letter)) {
+                letter = "6";
+            } else if ("PORS".contains(letter)) {
+                letter = "7";
+            } else if ("TUV".contains(letter)) {
+                letter = "8";
+            } else if ("WXYZ".contains(letter)) {
+                letter = "9";
+            }
+        }
+
+        return Arrays.toString(textArr);
+    }
+
 }
 
 
