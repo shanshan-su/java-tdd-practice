@@ -16,7 +16,6 @@ public class ChallengeTest {
         assertEquals(1, Challenge.solutions(10000, 400, 4));
     }
 
-
     // War of Numbers
     @Test
     public void testIfWareOfNumbersWorks() {
@@ -29,7 +28,6 @@ public class ChallengeTest {
         assertEquals(0, Challenge.warOfNumbers(new int[]{50,100,149,1,200,199,3,2}));
     }
 
-
     // Consecutive Numbers
     @Test
     public void testIfConsWorks() {
@@ -39,6 +37,16 @@ public class ChallengeTest {
         assertFalse(Challenge.consecutive(new int[]{5, 1, 4, 3, 2, 8}));
         assertFalse(Challenge.consecutive(new int[]{5, 6, 7, 8, 9, 9}));
         assertFalse(Challenge.consecutive(new int[]{5, 3}));
+    }
+
+    // Seven Boom!
+    @Test
+    public void testIfSevenBoomWorks() {
+        assertEquals("Boom!", Challenge.sevenBoom(new int[]{2, 6, 7, 9, 3}));
+        assertEquals("there is no 7 in the array", Challenge.sevenBoom(new int[]{33, 68, 400, 5}));
+        assertEquals("there is no 7 in the array", Challenge.sevenBoom(new int[]{86, 48, 100, 66}));
+        assertEquals("Boom!", Challenge.sevenBoom(new int[]{76, 55, 44, 32}));
+        assertEquals("Boom!", Challenge.sevenBoom(new int[]{35, 4, 9, 37}));
     }
 
 
