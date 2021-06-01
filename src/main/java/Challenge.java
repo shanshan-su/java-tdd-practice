@@ -1,4 +1,7 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Challenge {
 //    How Many Solutions Does This Quadratic Have?
@@ -140,29 +143,41 @@ public class Challenge {
     //Notes
     //All inputs will be formatted as a string representing a proper phone number in the format XXX-XXX-XXXX or (XXX)XXX-XXXX, using numbers and capital letters.
     public static String textToNum(String text) {
-        String[] textArr = text.split("(?!^)");
+        Map<String, String> letterAndNum = new HashMap<String, String>(){{
+            put("ABC", "2");
 
-        for (String letter : textArr) {
-            if ("ABC".contains(letter)) {
-                letter = "2";
-            } else if ("DEF".contains(letter)) {
-                letter = "3";
-            } else if ("GHI".contains(letter)) {
-                letter = "4";
-            } else if ("JKL".contains(letter)) {
-                letter = "5";
-            } else if ("MNO".contains(letter)) {
-                letter = "6";
-            } else if ("PORS".contains(letter)) {
-                letter = "7";
-            } else if ("TUV".contains(letter)) {
-                letter = "8";
-            } else if ("WXYZ".contains(letter)) {
-                letter = "9";
+            put("DEF", "3");
+
+            put("GHI", "4");
+
+            put("JKL", "5");
+
+            put("MNO", "6");
+            put("PQRS", "7");
+            put("TUV", "8");
+            put("WXYZ", "9");
+        }};
+        String[] textArr = text.split("(?!^)");
+        String phoneNumber = "";
+
+        // go through every element in textArr
+        for (int i = 0; i < textArr.length; i++) {
+            boolean isText = false;
+            // for each element in textArr, go through letterAndNum hashmap to see if needs to convert to number
+            for (String key : letterAndNum.keySet()) {
+                // if the number is text, convert the number then add to phoneNumber
+                if (key.contains(textArr[i])) {
+                    phoneNumber += letterAndNum.get(key);
+                    isText = true;
+                }
+            }
+
+            // if the number is not in the hashmap keySet, add it to phoneNumber directly
+            if (isText == false) {
+                phoneNumber += textArr[i];
             }
         }
-
-        return Arrays.toString(textArr);
+        return phoneNumber;
     }
 
 }
