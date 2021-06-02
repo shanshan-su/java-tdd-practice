@@ -60,5 +60,20 @@ public class ChallengeTest {
         assertEquals("(025)445-6741", Challenge.textToNum("(025)445-6741"));
     }
 
+    // How Many "Prime Numbers" Are There?
+    @Test
+    public void testIfPrimeNumbersWorks() {
+        assertEquals(8, Challenge.primeNumbers(20));
+        assertEquals(10, Challenge.primeNumbers(30));
+        assertEquals(25, Challenge.primeNumbers(100));
+        assertEquals(46, Challenge.primeNumbers(200));
+        assertEquals(168, Challenge.primeNumbers(1000));
+        assertEquals(0, Challenge.primeNumbers(-5));
+        assertEquals(18, Challenge.primeNumbers(66));
+        assertEquals(32, Challenge.primeNumbers(133));
+        assertEquals(25, Challenge.primeNumbers(99));
+    }
+
+
 
 }
