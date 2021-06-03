@@ -74,6 +74,15 @@ public class ChallengeTest {
         assertEquals(25, Challenge.primeNumbers(99));
     }
 
+    // Persistent Little Bugger
+    @Test
+    public void testIfBuggerWorks() {
+        assertEquals(3, Challenge.bugger(39));
+        assertEquals(0, Challenge.bugger(4));
+        assertEquals(2, Challenge.bugger(25));
+        assertEquals(4, Challenge.bugger(999));
+    }
+
 
 
 }

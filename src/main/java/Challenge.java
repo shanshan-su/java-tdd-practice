@@ -189,32 +189,60 @@ public class Challenge {
     //primeNumbers(30) ➞ 10
     //// 2, 3, 5, 7, 11, 13, 17, 19, 23 and 29
     public static int primeNumbers(int number) {
-        int count = 0;
         if (number <= 1) {
             return 0;
         } else if (number == 2) {
-            count += 1;
+            return 1;
         }
 
-        count = 1;
+        int count = 1;
 
-        for (int i = 2; i <= number; i++) {
+        for (int i = 3; i <= number; i++) {
             if (i % 2 != 0) {
                 boolean isPrime = true;
-                for (int j = 2; j <= Math.sqrt(i); j++) {
+                for (int j = 3; j <= Math.sqrt(i); j++) {
                     if (i % j == 0) {
                         isPrime = false;
                     }
                 }
 
                 if (isPrime) {
-                    System.out.println(i);
                     count += 1;
                 }
             }
         }
         return count;
     }
+
+    // Persistent Little Bugger
+    // Create a function that takes a number and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+    //
+    //Examples
+    //bugger(39) ➞ 3
+    //// Because 3 * 9 = 27, 2 * 7 = 14, 1 * 4 = 4 and 4 has only one digit.
+    //
+    //bugger(999) ➞ 4
+    //// Because 9 * 9 * 9 = 729, 7 * 2 * 9 = 126, 1 * 2 * 6 = 12, and finally 1 * 2 = 2.
+    //
+    //bugger(4) ➞ 0
+    //// Because 4 is already a one-digit number.
+    public static int bugger(int number) {
+        int count = 0;
+        int digit = 1;
+        while (number != 0) {
+            while (number != 0) {
+                digit *= number % 10;
+                number /= 10;
+            }
+            number = digit;
+            System.out.println(number);
+            count += 1;
+        }
+
+        return count;
+    }
+
+
 
 
 }
