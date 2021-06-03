@@ -228,17 +228,30 @@ public class Challenge {
     //// Because 4 is already a one-digit number.
     public static int bugger(int number) {
         int count = 0;
-        int digit = 1;
+        int total = 1;
 
+        // two while loops solution -- go through each digit
         while (number >= 10) {
             while (number != 0) {
-                digit *= number % 10;
+                total *= number % 10;
                 number /= 10;
             }
-            number = digit;
-            digit = 1;
+            number = total;
+            total = 1;
             count += 1;
         }
+
+        // convert to string then go through each digit solution
+//        String num = Integer.toString(number);
+//
+//        while (num.length() > 1) {
+//            for (int i = 0; i < num.length(); i++ ) {
+//                total *= Integer.parseInt(String.valueOf(num.charAt(i)));
+//            }
+//            count += 1;
+//            num = Integer.toString(total);
+//            total = 1;
+//        }
 
         return count;
     }
