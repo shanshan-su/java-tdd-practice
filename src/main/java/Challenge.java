@@ -229,13 +229,14 @@ public class Challenge {
     public static int bugger(int number) {
         int count = 0;
         int digit = 1;
-        while (number != 0) {
+
+        while (number >= 10) {
             while (number != 0) {
                 digit *= number % 10;
                 number /= 10;
             }
             number = digit;
-            System.out.println(number);
+            digit = 1;
             count += 1;
         }
 
