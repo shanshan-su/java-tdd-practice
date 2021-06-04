@@ -83,6 +83,19 @@ public class ChallengeTest {
         assertEquals(4, Challenge.bugger(999));
     }
 
+    // No Yelling
+    @Test
+    public void testIfNoYellingWorks() {
+        assertEquals("What went wrong?", Challenge.noYelling("What went wrong?????????"));
+        assertEquals("Oh my goodness!", Challenge.noYelling("Oh my goodness!!!"));
+        assertEquals("WHAT!", Challenge.noYelling("WHAT!"));
+        assertEquals("WHAT?", Challenge.noYelling("WHAT?"));
+        assertEquals("Oh my goodness!", Challenge.noYelling("Oh my goodness!"));
+        assertEquals("I just cannot believe it.", Challenge.noYelling("I just cannot believe it."));
+        assertEquals("I just!!! can!!! not!!! believe!!! it!", Challenge.noYelling("I just!!! can!!! not!!! believe!!! it!!!"));
+        assertEquals("That's a ton!! of cheese!", Challenge.noYelling("That's a ton!! of cheese!!!!"));
+    }
+
 
 
 }
