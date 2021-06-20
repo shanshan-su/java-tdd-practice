@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class ChallengeTest {
@@ -94,6 +95,22 @@ public class ChallengeTest {
         assertEquals("I just cannot believe it.", Challenge.noYelling("I just cannot believe it."));
         assertEquals("I just!!! can!!! not!!! believe!!! it!", Challenge.noYelling("I just!!! can!!! not!!! believe!!! it!!!"));
         assertEquals("That's a ton!! of cheese!", Challenge.noYelling("That's a ton!! of cheese!!!!"));
+    }
+
+    // Filter out Strings from an Array
+    @Test
+    public void testIfFilterArrayWorks() {
+        assertThat(Challenge.filterArray(new String[]{"1", "2", "a", "b"}), is(new String[]{"1", "2"}));
+        assertThat(Challenge.filterArray(new String[]{"1", "a", "b", "0", "15"}), is(new String[]{"1", "0", "15"}));
+        assertThat(Challenge.filterArray(new String[]{"1", "2", "aasf", "1", "123", "123"}), is(new String[]{"1", "2", "123"}));
+        assertThat(Challenge.filterArray(new String[]{"jsyt", "4", "yt", "6"}), is(new String[]{"4","6"}));
+        assertThat(Challenge.filterArray(new String[]{"r", "5", "y", "e", "8", "9"}), is(new String[]{"5", "8", "9"}));
+        assertThat(Challenge.filterArray(new String[]{"a", "e", "i", "o", "u"}), is(new String[]{}));
+        assertThat(Challenge.filterArray(new String[]{"4", "z", "f", "5"}), is(new String[]{"4", "5"}));
+        assertThat(Challenge.filterArray(new String[]{"abc", "123"}), is(new String[]{"123"}));
+        assertThat(Challenge.filterArray(new String[]{"$%^", "567", "&&&"}), is(new String[]{"567"}));
+        assertThat(Challenge.filterArray(new String[]{"w", "r", "u", "43", "s", "a", "76", "d", "88"}), is(new String[]{"43", "76", "88"}));
+
     }
 
 
