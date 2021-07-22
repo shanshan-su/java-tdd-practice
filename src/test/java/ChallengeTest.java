@@ -113,6 +113,17 @@ public class ChallengeTest {
 
     }
 
+    // You FAILEDPASSED the Exam
+    @Test
+    public void testIfGradePercentageWorks() {
+        assertEquals("You PASSED the Exam", Challenge.gradePercentage("85%", "85%"));
+        assertEquals("You PASSED the Exam", Challenge.gradePercentage("99%","85%"));
+        assertEquals("You FAILED the Exam", Challenge.gradePercentage("65%","90%"));
+        assertEquals("You FAILED the Exam", Challenge.gradePercentage("65%","66%"));
+        assertEquals("You PASSED the Exam", Challenge.gradePercentage("5%","5%"));
+        assertEquals("You FAILED the Exam", Challenge.gradePercentage("5%","6%"));
+        assertEquals("You PASSED the Exam", Challenge.gradePercentage("9%","6%"));
+    }
 
 
 }
