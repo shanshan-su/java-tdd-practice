@@ -5,17 +5,17 @@ public class HackerRankPractice {
     public  static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Given an integer, , perform the following conditional actions:
+        // Given an integer n, perform the following conditional actions:
         //
-        //If  is odd, print Weird
-        //If  is even and in the inclusive range of  to , print Not Weird
-        //If  is even and in the inclusive range of  to , print Weird
-        //If  is even and greater than , print Not Weird
+        //If n is odd, print Weird
+        //If n is even and in the inclusive range of  to , print Not Weird
+        //If n is even and in the inclusive range of  to , print Weird
+        //If n is even and greater than , print Not Weird
         //Complete the stub code provided in your editor to print whether or not  is weird.
         //
         //Input Format
         //
-        //A single line containing a positive integer, .
+        //A single line containing a positive integer n.
         //
         //Constraints
         //
@@ -98,5 +98,40 @@ public class HackerRankPractice {
         System.out.println("String: " + string);
         System.out.println("Double: " + number);
         System.out.println("Int: " + integer);
+
+        // Input Format
+        //
+        //Every line of input will contain a String followed by an integer.
+        //Each String will have a maximum of  alphabetic characters, and each integer will be in the inclusive range from  to .
+        //
+        //Output Format
+        //
+        //In each line of output there should be two columns:
+        //The first column contains the String and is left justified using exactly  characters.
+        //The second column contains the integer, expressed in exactly  digits; if the original input has less than three digits, you must pad your output's leading digits with zeroes.
+        //
+        //Sample Input
+        //
+        //java 100
+        //cpp 65
+        //python 50
+        //Sample Output
+        //
+        //================================
+        //java           100
+        //cpp            065
+        //python         050
+        //================================
+        //Explanation
+        //
+        //Each String is left-justified with trailing whitespace through the first  characters. The leading digit of the integer is the  character, and each integer that was less than  digits now has leading zeroes.
+        System.out.println("================================");
+        while (scanner.hasNext()) {
+            string = scanner.next();
+            number = scanner.nextInt();
+            System.out.printf("%-15s%03d%n", string, number);
+        }
+        scanner.close();
+        System.out.println("================================");
     }
 }
