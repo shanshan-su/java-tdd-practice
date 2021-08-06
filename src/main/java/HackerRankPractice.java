@@ -1,21 +1,24 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class HackerRankPractice {
 
-    public  static void main(String[] args) {
+    public  static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
-        // Given an integer, , perform the following conditional actions:
+        // Given an integer n, perform the following conditional actions:
         //
-        //If  is odd, print Weird
-        //If  is even and in the inclusive range of  to , print Not Weird
-        //If  is even and in the inclusive range of  to , print Weird
-        //If  is even and greater than , print Not Weird
+        //If n is odd, print Weird
+        //If n is even and in the inclusive range of  to , print Not Weird
+        //If n is even and in the inclusive range of  to , print Weird
+        //If n is even and greater than , print Not Weird
         //Complete the stub code provided in your editor to print whether or not  is weird.
         //
         //Input Format
         //
-        //A single line containing a positive integer, .
+        //A single line containing a positive integer n.
         //
         //Constraints
         //
@@ -98,5 +101,131 @@ public class HackerRankPractice {
         System.out.println("String: " + string);
         System.out.println("Double: " + number);
         System.out.println("Int: " + integer);
+
+        // Input Format
+        //
+        //Every line of input will contain a String followed by an integer.
+        //Each String will have a maximum of  alphabetic characters, and each integer will be in the inclusive range from  to .
+        //
+        //Output Format
+        //
+        //In each line of output there should be two columns:
+        //The first column contains the String and is left justified using exactly  characters.
+        //The second column contains the integer, expressed in exactly  digits; if the original input has less than three digits, you must pad your output's leading digits with zeroes.
+        //
+        //Sample Input
+        //
+        //java 100
+        //cpp 65
+        //python 50
+        //Sample Output
+        //
+        //================================
+        //java           100
+        //cpp            065
+        //python         050
+        //================================
+        //Explanation
+        //
+        //Each String is left-justified with trailing whitespace through the first  characters. The leading digit of the integer is the  character, and each integer that was less than  digits now has leading zeroes.
+        System.out.println("================================");
+        while (scanner.hasNext()) {
+            string = scanner.next();
+            number = scanner.nextInt();
+            System.out.printf("%-15s%03d%n", string, number);
+        }
+        scanner.close();
+        System.out.println("================================");
+
+        // Task
+        //Given an integer, , print its first  multiples. Each multiple  (where ) should be printed on a new line in the form: N x i = result.
+        //
+        //Input Format
+        //
+        //A single integer, .
+        //
+        //Constraints
+        //
+        //Output Format
+        //
+        //Print  lines of output; each line  (where ) contains the  of  in the form:
+        //N x i = result.
+        //
+        //Sample Input
+        //
+        //2
+        //Sample Output
+        //
+        //2 x 1 = 2
+        //2 x 2 = 4
+        //2 x 3 = 6
+        //2 x 4 = 8
+        //2 x 5 = 10
+        //2 x 6 = 12
+        //2 x 7 = 14
+        //2 x 8 = 16
+        //2 x 9 = 18
+        //2 x 10 = 20
+
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(bufferedReader.readLine().trim());
+        for (int i = 1; i <= 10; i++) {
+            int result = N * i;
+            System.out.printf("%d x %d = %d%n", N, i, result);
+        }
+        bufferedReader.close();
+
+        // We use the integers , , and  to create the following series:
+        //
+        //You are given  queries in the form of , , and . For each query, print the series corresponding to the given , , and  values as a single line of  space-separated integers.
+        //
+        //Input Format
+        //
+        //The first line contains an integer, , denoting the number of queries.
+        //Each line  of the  subsequent lines contains three space-separated integers describing the respective , , and  values for that query.
+        //
+        //Constraints
+        //
+        //Output Format
+        //
+        //For each query, print the corresponding series on a new line. Each series must be printed in order as a single line of  space-separated integers.
+        //
+        //Sample Input
+        //
+        //2
+        //0 2 10
+        //5 3 5
+        //Sample Output
+        //
+        //2 6 14 30 62 126 254 510 1022 2046
+        //8 14 26 50 98
+        //Explanation
+        //
+        //We have two queries:
+        //
+        //We use , , and  to produce some series :
+        //
+        //... and so on.
+        //
+        //Once we hit , we print the first ten terms as a single line of space-separated integers.
+        //
+        //We use , , and  to produce some series :
+        //
+        //We then print each element of our series as a single line of space-separated values.
+        int q = scanner.nextInt();
+
+        for (int i = 1; i <= q; i++) {
+            int a = scanner.nextInt();
+            int b = scanner.nextInt();
+            n = scanner.nextInt();
+            for (int j = 0; j < n; j++) {
+                a += b * Math.pow(2, j);
+                System.out.printf("%d ", a);
+            }
+            System.out.println();
+        }
+
+
     }
 }
