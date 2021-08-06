@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class HackerRankPractice {
@@ -226,6 +228,78 @@ public class HackerRankPractice {
             System.out.println();
         }
 
+        // Input Format
+        //
+        //The first line contains an integer, , denoting the number of test cases.
+        //Each test case, , is comprised of a single line with an integer, , which can be arbitrarily large or small.
+        //
+        //Output Format
+        //
+        //For each input variable  and appropriate primitive , you must determine if the given primitives are capable of storing it. If yes, then print:
+        //
+        //n can be fitted in:
+        //* dataType
+        //If there is more than one appropriate data type, print each one on its own line and order them by size (i.e.: ).
+        //
+        //If the number cannot be stored in one of the four aforementioned primitives, print the line:
+        //
+        //n can't be fitted anywhere.
+        //Sample Input
+        //
+        //5
+        //-150
+        //150000
+        //1500000000
+        //213333333333333333333333333333333333
+        //-100000000000000
+        //Sample Output
+        //
+        //-150 can be fitted in:
+        //* short
+        //* int
+        //* long
+        //150000 can be fitted in:
+        //* int
+        //* long
+        //1500000000 can be fitted in:
+        //* int
+        //* long
+        //213333333333333333333333333333333333 can't be fitted anywhere.
+        //-100000000000000 can be fitted in:
+        //* long
+        //Explanation
+        //
+        // can be stored in a short, an int, or a long.
+        //
+        // is very large and is outside of the allowable range of values for the primitive data types discussed in this problem.
+
+        int T = scanner.nextInt();
+
+        for (int i = 1; i <= T; i++) {
+            String num = scanner.next();
+            List<String> results = new ArrayList();
+            try {
+                long numberLong = Long.parseLong(num);
+                System.out.printf("%d can be fitted in:%n", numberLong);
+                results.add("long");
+
+                if (numberLong >= -2147483648 && numberLong <= 2147483647) {
+                    results.add(0, "int");
+                }
+                if (numberLong >= -32768 && numberLong <= 32767) {
+                    results.add(0, "short");
+                }
+                if (numberLong >= -128 && numberLong <= 127) {
+                    results.add(0, "byte");
+                }
+            } catch(NumberFormatException e) {
+                System.out.printf("%s can't be fitted in anywhere.%n", num);
+            }
+
+            for (String result : results) {
+                System.out.printf("* %s%n", result);
+            }
+        }
 
     }
 }
