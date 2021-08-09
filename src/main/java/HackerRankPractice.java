@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class HackerRankPractice {
@@ -226,6 +228,151 @@ public class HackerRankPractice {
             System.out.println();
         }
 
+        // Input Format
+        //
+        //The first line contains an integer, , denoting the number of test cases.
+        //Each test case, , is comprised of a single line with an integer, , which can be arbitrarily large or small.
+        //
+        //Output Format
+        //
+        //For each input variable  and appropriate primitive , you must determine if the given primitives are capable of storing it. If yes, then print:
+        //
+        //n can be fitted in:
+        //* dataType
+        //If there is more than one appropriate data type, print each one on its own line and order them by size (i.e.: ).
+        //
+        //If the number cannot be stored in one of the four aforementioned primitives, print the line:
+        //
+        //n can't be fitted anywhere.
+        //Sample Input
+        //
+        //5
+        //-150
+        //150000
+        //1500000000
+        //213333333333333333333333333333333333
+        //-100000000000000
+        //Sample Output
+        //
+        //-150 can be fitted in:
+        //* short
+        //* int
+        //* long
+        //150000 can be fitted in:
+        //* int
+        //* long
+        //1500000000 can be fitted in:
+        //* int
+        //* long
+        //213333333333333333333333333333333333 can't be fitted anywhere.
+        //-100000000000000 can be fitted in:
+        //* long
+        //Explanation
+        //
+        // can be stored in a short, an int, or a long.
+        //
+        // is very large and is outside of the allowable range of values for the primitive data types discussed in this problem.
 
+        int T = scanner.nextInt();
+
+        for (int i = 1; i <= T; i++) {
+            String num = scanner.next();
+            List<String> results = new ArrayList();
+            try {
+                long numberLong = Long.parseLong(num);
+                System.out.printf("%d can be fitted in:%n", numberLong);
+                results.add("long");
+
+                if (numberLong >= -2147483648 && numberLong <= 2147483647) {
+                    results.add(0, "int");
+                }
+                if (numberLong >= -32768 && numberLong <= 32767) {
+                    results.add(0, "short");
+                }
+                if (numberLong >= -128 && numberLong <= 127) {
+                    results.add(0, "byte");
+                }
+            } catch(NumberFormatException e) {
+                System.out.printf("%s can't be fitted in anywhere.%n", num);
+            }
+
+            for (String result : results) {
+                System.out.printf("* %s%n", result);
+            }
+        }
+
+        // "In computing, End Of File (commonly abbreviated EOF) is a condition in a computer operating system where no more data can be read from a data source." — (Wikipedia: End-of-file)
+        //
+        //The challenge here is to read  lines of input until you reach EOF, then number and print all  lines of content.
+        //
+        //Hint: Java's Scanner.hasNext() method is helpful for this problem.
+        //
+        //Input Format
+        //
+        //Read some unknown  lines of input from stdin(System.in) until you reach EOF; each line of input contains a non-empty String.
+        //
+        //Output Format
+        //
+        //For each line, print the line number, followed by a single space, and then the line content received as input.
+        //
+        //Sample Input
+        //
+        //Hello world
+        //I am a file
+        //Read me until end-of-file.
+        //Sample Output
+        //
+        //1 Hello world
+        //2 I am a file
+        //3 Read me until end-of-file.
+
+        int i = 0;
+        while(scanner.hasNext()) {
+            string = scanner.nextLine();
+            i++;
+            System.out.printf("%d %s%n", i, string);
+        }
+
+        // Static initialization blocks are executed when the class is loaded, and you can initialize static variables in those blocks.
+        //
+        //It's time to test your knowledge of Static initialization blocks. You can read about it here.
+        //
+        //You are given a class Solution with a main method. Complete the given code so that it outputs the area of a parallelogram with breadth  and height . You should read the variables from the standard input.
+        //
+        //If  or  , the output should be "java.lang.Exception: Breadth and height must be positive" without quotes.
+        //
+        //Input Format
+        //
+        //There are two lines of input. The first line contains : the breadth of the parallelogram. The next line contains : the height of the parallelogram.
+        //
+        //Constraints
+        //
+        //Output Format
+        //
+        //If both values are greater than zero, then the main method must output the area of the parallelogram. Otherwise, print "java.lang.Exception: Breadth and height must be positive" without quotes.
+        //
+        //Sample input 1
+        //
+        //1
+        //3
+        //Sample output 1
+        //
+        //3
+        //Sample input 2
+        //
+        //-1
+        //2
+        //Sample output 2
+        //
+        //java.lang.Exception: Breadth and height must be positive
+
+        int B = scanner.nextInt();
+        int H = scanner.nextInt();
+
+        if (B > 0 && H > 0) {
+            System.out.println(B * H);
+        } else {
+            System.out.println("java.lang.Exception: Breadth and height must be positive");
+        }
     }
 }
