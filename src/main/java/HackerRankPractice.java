@@ -374,5 +374,35 @@ public class HackerRankPractice {
         } else {
             System.out.println("java.lang.Exception: Breadth and height must be positive");
         }
+
+        // You are given an integer , you have to convert it into a string.
+        //
+        //Please complete the partially completed code in the editor. If your code successfully converts  into a string  the code will print "Good job". Otherwise it will print "Wrong answer".
+        //
+        // can range between  to  inclusive.
+        //
+        //Sample Input 0
+        //
+        //100
+        //Sample Output 0
+        //
+        //Good job
+
+        n = scanner.nextInt();
+        try {
+            String s = String.valueOf(n);
+            System.out.println("Good job");
+        } catch (Exception e) {
+            System.out.println("Wrong answer");
+        }
+
+
+
+
+
+
+
+
+
     }
 }
