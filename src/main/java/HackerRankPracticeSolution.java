@@ -1,12 +1,7 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-public class HackerRankPractice {
-
+public class HackerRankPracticeSolution {
     public  static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
@@ -293,7 +288,7 @@ public class HackerRankPractice {
                     results.add(0, "byte");
                 }
             } catch(NumberFormatException e) {
-                System.out.printf("%s can't be fitted in anywhere.%n", num);
+                System.out.printf("%s can't be fitted anywhere.%n", num);
             }
 
             for (String result : results) {
@@ -396,7 +391,51 @@ public class HackerRankPractice {
             System.out.println("Wrong answer");
         }
 
+        // Function Description
+        //
+        //Complete the findDay function in the editor below.
+        //
+        //findDay has the following parameters:
+        //
+        //int: month
+        //int: day
+        //int: year
+        //Returns
+        //
+        //string: the day of the week in capital letters
+        //Input Format
+        //
+        //A single line of input containing the space separated month, day and year, respectively, in    format.
+        //
+        //Constraints
+        //
+        //Sample Input
+        //
+        //08 05 2015
+        //Sample Output
+        //
+        //WEDNESDAY
+        //Explanation
+        //
+        //The day on August th  was WEDNESDAY.
 
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int month = Integer.parseInt(firstMultipleInput[0]);
+
+        int day = Integer.parseInt(firstMultipleInput[1]);
+
+        int year = Integer.parseInt(firstMultipleInput[2]);
+
+        String res = Result.findDay(month, day, year);
+
+        bufferedWriter.write(res);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
 
 
 
