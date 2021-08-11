@@ -1,12 +1,8 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.text.NumberFormat;
+import java.util.*;
 
-public class HackerRankPractice {
-
+public class HackerRankPracticeSolution {
     public  static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
@@ -293,7 +289,7 @@ public class HackerRankPractice {
                     results.add(0, "byte");
                 }
             } catch(NumberFormatException e) {
-                System.out.printf("%s can't be fitted in anywhere.%n", num);
+                System.out.printf("%s can't be fitted anywhere.%n", num);
             }
 
             for (String result : results) {
@@ -396,9 +392,102 @@ public class HackerRankPractice {
             System.out.println("Wrong answer");
         }
 
+        // Function Description
+        //
+        //Complete the findDay function in the editor below.
+        //
+        //findDay has the following parameters:
+        //
+        //int: month
+        //int: day
+        //int: year
+        //Returns
+        //
+        //string: the day of the week in capital letters
+        //Input Format
+        //
+        //A single line of input containing the space separated month, day and year, respectively, in    format.
+        //
+        //Constraints
+        //
+        //Sample Input
+        //
+        //08 05 2015
+        //Sample Output
+        //
+        //WEDNESDAY
+        //Explanation
+        //
+        //The day on August th  was WEDNESDAY.
 
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
+        int month = Integer.parseInt(firstMultipleInput[0]);
+
+        int day = Integer.parseInt(firstMultipleInput[1]);
+
+        int year = Integer.parseInt(firstMultipleInput[2]);
+
+        String res = Result.findDay(month, day, year);
+
+        bufferedWriter.write(res);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+
+        // Given a double-precision number, , denoting an amount of money, use the NumberFormat class' getCurrencyInstance method to convert  into the US, Indian, Chinese, and French currency formats. Then print the formatted values as follows:
+        //
+        //US: formattedPayment
+        //India: formattedPayment
+        //China: formattedPayment
+        //France: formattedPayment
+        //where  is  formatted according to the appropriate Locale's currency.
+        //
+        //Note: India does not have a built-in Locale, so you must construct one where the language is en (i.e., English).
+        //
+        //Input Format
+        //
+        //A single double-precision number denoting .
+        //
+        //Constraints
+        //
+        //Output Format
+        //
+        //On the first line, print US: u where  is  formatted for US currency.
+        //On the second line, print India: i where  is  formatted for Indian currency.
+        //On the third line, print China: c where  is  formatted for Chinese currency.
+        //On the fourth line, print France: f, where  is  formatted for French currency.
+        //
+        //Sample Input
+        //
+        //12324.134
+        //Sample Output
+        //
+        //US: $12,324.13
+        //India: Rs.12,324.13
+        //China: ￥12,324.13
+        //France: 12 324,13 €
+        //Explanation
+        //
+        //Each line contains the value of  formatted according to the four countries' respective currencies.
+
+        double payment = scanner.nextDouble();
+
+        NumberFormat numberFormat;
+        numberFormat = NumberFormat.getCurrencyInstance(new Locale("en", "US"));
+        System.out.printf("US: %s%n", numberFormat.format(payment));
+
+        numberFormat = NumberFormat.getCurrencyInstance(new Locale("en", "IN"));
+        System.out.printf("India: %s%n", numberFormat.format(payment));
+
+        numberFormat = NumberFormat.getCurrencyInstance(new Locale("zh", "CN"));
+        System.out.printf("China: %s%n", numberFormat.format(payment));
+
+        numberFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+        System.out.printf("France: %s%n", numberFormat.format(payment));
 
 
 
