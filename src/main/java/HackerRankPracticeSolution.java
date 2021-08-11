@@ -420,23 +420,14 @@ public class HackerRankPracticeSolution {
         //
         //The day on August th  was WEDNESDAY.
 
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        int month = scanner.nextInt();
 
-        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+        int day = scanner.nextInt();
 
-        int month = Integer.parseInt(firstMultipleInput[0]);
+        int year = scanner.nextInt();
 
-        int day = Integer.parseInt(firstMultipleInput[1]);
+        System.out.println(Result.findDay(month, day, year));
 
-        int year = Integer.parseInt(firstMultipleInput[2]);
-
-        String res = Result.findDay(month, day, year);
-
-        bufferedWriter.write(res);
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
 
         // Given a double-precision number, , denoting an amount of money, use the NumberFormat class' getCurrencyInstance method to convert  into the US, Indian, Chinese, and French currency formats. Then print the formatted values as follows:
         //
