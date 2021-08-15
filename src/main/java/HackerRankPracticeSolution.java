@@ -420,23 +420,14 @@ public class HackerRankPracticeSolution {
         //
         //The day on August th  was WEDNESDAY.
 
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        int month = scanner.nextInt();
 
-        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+        int day = scanner.nextInt();
 
-        int month = Integer.parseInt(firstMultipleInput[0]);
+        int year = scanner.nextInt();
 
-        int day = Integer.parseInt(firstMultipleInput[1]);
+        System.out.println(Result.findDay(month, day, year));
 
-        int year = Integer.parseInt(firstMultipleInput[2]);
-
-        String res = Result.findDay(month, day, year);
-
-        bufferedWriter.write(res);
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
 
         // Given a double-precision number, , denoting an amount of money, use the NumberFormat class' getCurrencyInstance method to convert  into the US, Indian, Chinese, and French currency formats. Then print the formatted values as follows:
         //
@@ -489,7 +480,57 @@ public class HackerRankPracticeSolution {
         numberFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
         System.out.printf("France: %s%n", numberFormat.format(payment));
 
+        // Comparators are used to compare two objects. In this challenge, you'll create a comparator and use it to sort an array.
+        //
+        //The Player class is provided for you in your editor. It has  fields: a  String and a  integer.
+        //
+        //Given an array of  Player objects, write a comparator that sorts them in order of decreasing score; if  or more players have the same score, sort those players alphabetically by name. To do this, you must create a Checker class that implements the Comparator interface, then write an int compare(Player a, Player b) method implementing the Comparator.compare(T o1, T o2) method.
+        //
+        //Input Format
+        //
+        //Input from stdin is handled by the locked stub code in the Solution class.
+        //
+        //The first line contains an integer, , denoting the number of players.
+        //Each of the  subsequent lines contains a player's  and , respectively.
+        //
+        //Constraints
+        //
+        // players can have the same name.
+        //Player names consist of lowercase English letters.
+        //Output Format
+        //
+        //You are not responsible for printing any output to stdout. The locked stub code in Solution will create a Checker object, use it to sort the Player array, and print each sorted element.
+        //
+        //Sample Input
+        //
+        //5
+        //amy 100
+        //david 100
+        //heraldo 50
+        //aakansha 75
+        //aleksa 150
+        //Sample Output
+        //
+        //aleksa 150
+        //amy 100
+        //david 100
+        //aakansha 75
+        //heraldo 50
+        Scanner scan = new Scanner(System.in);
+        n = scan.nextInt();
 
+        Player[] player = new Player[n];
+        Checker checker = new Checker();
+
+        for(i = 0; i < n; i++){
+            player[i] = new Player(scan.next(), scan.nextInt());
+        }
+        scan.close();
+
+        Arrays.sort(player, checker);
+        for(i = 0; i < player.length; i++){
+            System.out.printf("%s %s\n", player[i].name, player[i].score);
+        }
 
 
 

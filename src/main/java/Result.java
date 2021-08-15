@@ -1,10 +1,7 @@
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 public class Result {
-
+    static List<String> days = Arrays.asList("SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY");
     /*
      * Complete the 'findDay' function below.
      *
@@ -16,8 +13,10 @@ public class Result {
      */
 
     public static String findDay(int month, int day, int year) {
-        Date date = new GregorianCalendar(month, day, year).getTime();
-        DateFormat dayFormat=new SimpleDateFormat("EEEE");
-        return dayFormat.format(date).toUpperCase();
+        Calendar c = Calendar.getInstance();
+        c.set(year, month - 1, day);
+
+        int p = c.get(Calendar.DAY_OF_WEEK);
+        return days.get(p - 1);
     }
 }
