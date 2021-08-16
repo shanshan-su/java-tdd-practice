@@ -606,5 +606,148 @@ public class HackerRankPracticeSolution {
             System.out.println(st.getFname());
         }
 
+        // In computer science, a double-ended queue (dequeue, often abbreviated to deque, pronounced deck) is an abstract data type that generalizes a queue, for which elements can be added to or removed from either the front (head) or back (tail).
+        //
+        //Deque interfaces can be implemented using various types of collections such as LinkedList or ArrayDeque classes. For example, deque can be declared as:
+        //
+        //Deque deque = new LinkedList<>();
+        //or
+        //Deque deque = new ArrayDeque<>();
+        //You can find more details about Deque here.
+        //
+        //In this problem, you are given  integers. You need to find the maximum number of unique integers among all the possible contiguous subarrays of size .
+        //
+        //Note: Time limit is 3 second for this problem.
+        //
+        //Input Format
+        //
+        //The first line of input contains two integers  and : representing the total number of integers and the size of the subarray, respectively. The next line contains  space separated integers.
+        //
+        //Constraints
+        //
+        //The numbers in the array will range between .
+        //
+        //Output Format
+        //
+        //Print the maximum number of unique integers among all possible contiguous subarrays of size .
+        //
+        //Sample Input
+        //
+        //6 3
+        //5 3 5 2 3 2
+        //Sample Output
+        //
+        //3
+        //Explanation
+        //
+        //In the sample testcase, there are 4 subarrays of contiguous numbers.
+        //
+        // - Has  unique numbers.
+        //
+        // - Has  unique numbers.
+        //
+        // - Has  unique numbers.
+        //
+        // - Has  unique numbers.
+        //
+        //In these subarrays, there are  unique numbers, respectively. The maximum amount of unique numbers among all possible contiguous subarrays is .
+        Deque<Integer> deque = new ArrayDeque<>();
+        HashSet<Integer> uniqueNumbers = new HashSet<>();
+        int max = 0;
+
+        n = scanner.nextInt();
+        int m = scanner.nextInt();
+
+        for (i = 0; i < n; i++) {
+            int input = scanner.nextInt();
+
+            deque.add(input);
+            uniqueNumbers.add(input);
+
+            if (deque.size() == m) {
+                if (uniqueNumbers.size() > max) {
+                    max = uniqueNumbers.size();
+                }
+
+                int first = deque.remove();
+                if  (!deque.contains(first)) {
+                    uniqueNumbers.remove(first);
+                }
+            }
+        }
+
+        System.out.println(max);
+
+        // Java's BitSet class implements a vector of bit values (i.e.:  () or  ()) that grows as needed, allowing us to easily manipulate bits while optimizing space (when compared to other collections). Any element having a bit value of  is called a set bit.
+        //
+        //Given  BitSets,  and , of size  where all bits in both BitSets are initialized to , perform a series of  operations. After each operation, print the number of set bits in the respective BitSets as two space-separated integers on a new line.
+        //
+        //Input Format
+        //
+        //The first line contains  space-separated integers,  (the length of both BitSets  and ) and  (the number of operations to perform), respectively.
+        //The  subsequent lines each contain an operation in one of the following forms:
+        //
+        //AND
+        //OR
+        //XOR
+        //FLIP
+        //SET
+        //In the list above,  is the integer  or , where  denotes  and  denotes .
+        // is an integer denoting a bit's index in the BitSet corresponding to .
+        //
+        //For the binary operations , , and , operands are read from left to right and the BitSet resulting from the operation replaces the contents of the first operand. For example:
+        //
+        //AND 2 1
+        // is the left operand, and  is the right operand. This operation should assign the result of  to .
+        //
+        //Constraints
+        //
+        //Output Format
+        //
+        //After each operation, print the respective number of set bits in BitSet  and BitSet  as  space-separated integers on a new line.
+        //
+        //Sample Input
+        //
+        //5 4
+        //AND 1 2
+        //SET 1 4
+        //FLIP 2 2
+        //OR 2 1
+        //Sample Output
+        //
+        //0 0
+        //1 0
+        //1 1
+        //1 2
+
+        n = scanner.nextInt();
+        m = scanner.nextInt();
+
+        BitSet bitSet1 = new BitSet(n);
+        BitSet bitSet2 = new BitSet(n);
+
+        BitSet[] bitSets = {new BitSet(n), bitSet1, bitSet2};
+
+        for (i = 0; i < m; i++) {
+            String operator = scanner.next();
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
+
+            if (operator.equals("AND")) {
+                bitSets[x].and(bitSets[y]);
+            } else if (operator.equals("OR")) {
+                bitSets[x].or(bitSets[y]);
+            } else if (operator.equals("XOR")) {
+                bitSets[x].xor(bitSets[y]);
+            } else if (operator.equals("FLIP")) {
+                bitSets[x].flip(y);
+            } else if (operator.equals("SET")) {
+                bitSets[x].set(y);
+            }
+
+            System.out.printf("%d %d%n", bitSets[1].cardinality(), bitSets[2].cardinality());
+        }
+
+
     }
 }
