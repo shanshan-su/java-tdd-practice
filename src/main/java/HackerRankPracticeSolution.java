@@ -617,7 +617,7 @@ public class HackerRankPracticeSolution {
         //
         //In this problem, you are given  integers. You need to find the maximum number of unique integers among all the possible contiguous subarrays of size .
         //
-        //Note: Time limit is  second for this problem.
+        //Note: Time limit is 3 second for this problem.
         //
         //Input Format
         //
@@ -664,8 +664,11 @@ public class HackerRankPracticeSolution {
             deque.add(input);
             uniqueNumbers.add(input);
 
-            if (uniqueNumbers.size() == m) {
-                max = uniqueNumbers.size();
+            if (deque.size() == m) {
+                if (uniqueNumbers.size() > max) {
+                    max = uniqueNumbers.size();
+                }
+
                 int first = deque.remove();
                 if  (!deque.contains(first)) {
                     uniqueNumbers.remove(first);
