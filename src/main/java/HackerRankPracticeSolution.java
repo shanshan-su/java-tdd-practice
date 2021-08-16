@@ -532,7 +532,79 @@ public class HackerRankPracticeSolution {
             System.out.printf("%s %s\n", player[i].name, player[i].score);
         }
 
+        // You are given a list of student information: ID, FirstName, and CGPA. Your task is to rearrange them according to their CGPA in decreasing order. If two student have the same CGPA, then arrange them according to their first name in alphabetical order. If those two students also have the same first name, then order them according to their ID. No two students have the same ID.
+        //
+        //Hint: You can use comparators to sort a list of objects. See the oracle docs to learn about comparators.
+        //
+        //Input Format
+        //
+        //The first line of input contains an integer , representing the total number of students. The next  lines contains a list of student information in the following structure:
+        //
+        //ID Name CGPA
+        //Constraints
+        //
+        //
+        //
+        //
+        //
+        //
+        //The name contains only lowercase English letters. The  contains only integer numbers without leading zeros. The CGPA will contain, at most, 2 digits after the decimal point.
+        //
+        //Output Format
+        //
+        //After rearranging the students according to the above rules, print the first name of each student on a separate line.
+        //
+        //Sample Input
+        //
+        //5
+        //33 Rumpa 3.68
+        //85 Ashis 3.85
+        //56 Samiha 3.75
+        //19 Samara 3.75
+        //22 Fahim 3.76
+        //Sample Output
+        //
+        //Ashis
+        //Fahim
+        //Samara
+        //Samiha
+        //Rumpa
+        int testCases = Integer.parseInt(scanner.nextLine());
 
+        List<Student> studentList = new ArrayList<Student>();
+        while(testCases>0){
+            int id = scanner.nextInt();
+            String fname = scanner.next();
+            double cgpa = scanner.nextDouble();
+
+            Student st = new Student(id, fname, cgpa);
+            studentList.add(st);
+
+            testCases--;
+        }
+
+        final Comparator<Student> comparator = new Comparator<Student>() {
+            public int compare(Student student1, Student student2) {
+                if (student1.getCgpa() > student2.getCgpa()) {
+                    return -1;
+                } else if  (student1.getCgpa() < student2.getCgpa()) {
+                    return 1;
+                } else {
+                    if (student1.getFname().equals(student2.getFname())) {
+                        return student1.getId() - student2.getId();
+                    } else {
+                        return student1.getFname().compareTo(student2.getFname());
+                    }
+                }
+            }
+        };
+
+        // sort the list
+        Collections.sort(studentList, comparator);
+
+        for(Student st: studentList){
+            System.out.println(st.getFname());
+        }
 
     }
 }
