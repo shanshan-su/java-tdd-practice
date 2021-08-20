@@ -826,6 +826,53 @@ public class HackerRankPracticeSolution {
         System.out.println(string.substring(start, end));
 
 
+        // Complete the getSmallestAndLargest function in the editor below.
+        //
+        //getSmallestAndLargest has the following parameters:
+        //
+        //string s: a string
+        //int k: the length of the substrings to find
+        //Returns
+        //
+        //string: the string ' + "\n" + ' where and are the two substrings
+        //Input Format
+        //
+        //The first line contains a string denoting .
+        //The second line contains an integer denoting .
+        //
+        //Constraints
+        //
+        // consists of English alphabetic letters only (i.e., [a-zA-Z]).
+        //Sample Input 0
+        //
+        //welcometojava
+        //3
+        //Sample Output 0
+        //
+        //ava
+        //wel
+        //Explanation 0
+        //
+        //String  has the following lexicographically-ordered substrings of length :
+        //
+        //We then return the first (lexicographically smallest) substring and the last (lexicographically largest) substring as two newline-separated values (i.e., ava\nwel).
+        //
+        //The stub code in the editor then prints ava as our first line of output and wel as our second line of output.
+
+        string = scanner.next();
+        int len = scanner.nextInt();
+
+        List<String> stringList = new ArrayList<>();
+
+        for (i = 0; i < string.length() - len + 1; i++) {
+            String element = string.substring(i, len + i);
+            stringList.add(element);
+        }
+
+        Collections.sort(stringList);
+
+        System.out.println(stringList.get(0));
+        System.out.println(stringList.get(stringList.size() - 1));
 
     }
 }
