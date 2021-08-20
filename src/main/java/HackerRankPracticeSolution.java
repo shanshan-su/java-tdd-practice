@@ -874,5 +874,29 @@ public class HackerRankPracticeSolution {
         System.out.println(stringList.get(0));
         System.out.println(stringList.get(stringList.size() - 1));
 
+
+        // A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward.
+        //
+        //Given a string , print Yes if it is a palindrome, print No otherwise.
+        //
+        //Constraints
+        //
+        // will consist at most 50 lower case english letters.
+        //Sample Input
+        //
+        //madam
+        //Sample Output
+        //
+        //Yes
+
+        string = scanner.next();
+
+        boolean isPalindrome = string.equals(new StringBuilder(string).reverse().toString());
+        if (isPalindrome) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+
     }
 }
