@@ -748,6 +748,131 @@ public class HackerRankPracticeSolution {
             System.out.printf("%d %d%n", bitSets[1].cardinality(), bitSets[2].cardinality());
         }
 
+        // Given two strings of lowercase English letters,  and , perform the following operations:
+        //
+        //Sum the lengths of  and .
+        //Determine if  is lexicographically larger than  (i.e.: does  come before  in the dictionary?).
+        //Capitalize the first letter in  and  and print them on a single line, separated by a space.
+        //Input Format
+        //
+        //The first line contains a string . The second line contains another string . The strings are comprised of only lowercase English letters.
+        //
+        //Output Format
+        //
+        //There are three lines of output:
+        //For the first line, sum the lengths of  and .
+        //For the second line, write Yes if  is lexicographically greater than  otherwise print No instead.
+        //For the third line, capitalize the first letter in both  and  and print them on a single line, separated by a space.
+        //
+        //Sample Input 0
+        //
+        //hello
+        //java
+        //Sample Output 0
+        //
+        //9
+        //No
+        //Hello Java
+        //Explanation 0
+        //
+        //String  is "hello" and  is "java".
+        //
+        // has a length of , and  has a length of ; the sum of their lengths is .
+        //When sorted alphabetically/lexicographically, "hello" precedes "java"; therefore,  is not greater than  and the answer is No.
+        //
+        //When you capitalize the first letter of both  and  and then print them separated by a space, you get "Hello Java".
+
+        String input1 = scanner.next();
+        String input2 = scanner.next();
+        String[] inputs = {input1, input2};
+        Arrays.sort(inputs);
+
+        int sum = input1.length() + input2.length();
+        System.out.println(sum);
+        if (inputs[0].equals(input1)) {
+            System.out.println("No");
+        } else {
+            System.out.println("Yes");
+        }
+
+        System.out.println(input1.substring(0, 1).toUpperCase() + input1.substring(1).toLowerCase() + " " + input2.substring(0, 1).toUpperCase() + input2.substring(1).toLowerCase());
+
+        // Given a string, , and two indices,  and , print a substring consisting of all characters in the inclusive range from  to . You'll find the String class' substring method helpful in completing this challenge.
+        //
+        //Input Format
+        //
+        //The first line contains a single string denoting .
+        //The second line contains two space-separated integers denoting the respective values of  and .
+        //
+        //Constraints
+        //
+        //String  consists of English alphabetic letters (i.e., ) only.
+        //Output Format
+        //
+        //Print the substring in the inclusive range from  to .
+        //
+        //Sample Input
+        //
+        //Helloworld
+        //3 7
+        //Sample Output
+        //
+        //lowo
+
+        string = scanner.next();
+        int start = scanner.nextInt();
+        int end = scanner.nextInt();
+
+        System.out.println(string.substring(start, end));
+
+
+        // Complete the getSmallestAndLargest function in the editor below.
+        //
+        //getSmallestAndLargest has the following parameters:
+        //
+        //string s: a string
+        //int k: the length of the substrings to find
+        //Returns
+        //
+        //string: the string ' + "\n" + ' where and are the two substrings
+        //Input Format
+        //
+        //The first line contains a string denoting .
+        //The second line contains an integer denoting .
+        //
+        //Constraints
+        //
+        // consists of English alphabetic letters only (i.e., [a-zA-Z]).
+        //Sample Input 0
+        //
+        //welcometojava
+        //3
+        //Sample Output 0
+        //
+        //ava
+        //wel
+        //Explanation 0
+        //
+        //String  has the following lexicographically-ordered substrings of length :
+        //
+        //We then return the first (lexicographically smallest) substring and the last (lexicographically largest) substring as two newline-separated values (i.e., ava\nwel).
+        //
+        //The stub code in the editor then prints ava as our first line of output and wel as our second line of output.
+
+        string = scanner.next();
+        int len = scanner.nextInt();
+
+        List<String> stringList = new ArrayList<>();
+
+        for (i = 0; i < string.length() - len + 1; i++) {
+            String element = string.substring(i, len + i);
+            stringList.add(element);
+        }
+
+        Collections.sort(stringList);
+
+        System.out.println(stringList.get(0));
+        System.out.println(stringList.get(stringList.size() - 1));
 
     }
 }
