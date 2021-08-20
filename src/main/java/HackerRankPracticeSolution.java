@@ -874,5 +874,190 @@ public class HackerRankPracticeSolution {
         System.out.println(stringList.get(0));
         System.out.println(stringList.get(stringList.size() - 1));
 
+
+        // A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward.
+        //
+        //Given a string , print Yes if it is a palindrome, print No otherwise.
+        //
+        //Constraints
+        //
+        // will consist at most 50 lower case english letters.
+        //Sample Input
+        //
+        //madam
+        //Sample Output
+        //
+        //Yes
+
+        string = scanner.next();
+
+        boolean isPalindrome = string.equals(new StringBuilder(string).reverse().toString());
+        if (isPalindrome) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+
+        // Two strings,  and , are called anagrams if they contain all the same characters in the same frequencies. For this challenge, the test is not case-sensitive. For example, the anagrams of CAT are CAT, ACT, tac, TCA, aTC, and CtA.
+        //
+        //Function Description
+        //
+        //Complete the isAnagram function in the editor.
+        //
+        //isAnagram has the following parameters:
+        //
+        //string a: the first string
+        //string b: the second string
+        //Returns
+        //
+        //boolean: If  and  are case-insensitive anagrams, return true. Otherwise, return false.
+        //Input Format
+        //
+        //The first line contains a string .
+        //The second line contains a string .
+        //
+        //Constraints
+        //
+        //Strings  and  consist of English alphabetic characters.
+        //The comparison should NOT be case sensitive.
+        //Sample Input 0
+        //
+        //anagram
+        //margana
+        //Sample Output 0
+        //
+        //Anagrams
+        //Explanation 0
+        //
+        //Character	Frequency: anagram	Frequency: margana
+        //A or a	3	3
+        //G or g	1	1
+        //N or n	1	1
+        //M or m	1	1
+        //R or r	1	1
+        //The two strings contain all the same letters in the same frequencies, so we print "Anagrams".
+        //
+        //Sample Input 1
+        //
+        //anagramm
+        //marganaa
+        //Sample Output 1
+        //
+        //Not Anagrams
+        //Explanation 1
+        //
+        //Character	Frequency: anagramm	Frequency: marganaa
+        //A or a	3	4
+        //G or g	1	1
+        //N or n	1	1
+        //M or m	2	1
+        //R or r	1	1
+        //The two strings don't contain the same number of a's and m's, so we print "Not Anagrams".
+        //
+        //Sample Input 2
+        //
+        //Hello
+        //hello
+        //Sample Output 2
+        //
+        //Anagrams
+        //Explanation 2
+        //
+        //Character	Frequency: Hello	Frequency: hello
+        //E or e	1	1
+        //H or h	1	1
+        //L or l	2	2
+        //O or o	1	1
+        //The two strings contain all the same letters in the same frequencies, so we print "Anagrams".
+
+        List<String> list1 = Arrays.asList(scanner.next().split(""));
+        List<String> list2 = Arrays.asList(scanner.next().split(""));
+
+        Set<String> letterSet = new HashSet<>();
+        letterSet.addAll(list1);
+        letterSet.addAll(list2);
+
+        boolean isAnagrams = true;
+
+        for (String letter : letterSet) {
+            int count1 = 0;
+            int count2 = 0;
+            // count how many string there are in list1
+            for (String letter1 : list1) {
+                if (letter1.equalsIgnoreCase(letter)) {
+                    count1 += 1;
+                }
+            }
+
+            // count how many string there are in list2
+            for (String character : list2) {
+                if (character.equalsIgnoreCase(letter)) {
+                    count2 += 1;
+                }
+            }
+
+            if  (count1 != count2) {
+                isAnagrams = false;
+                System.out.println("Not Anagrams");
+                break;
+            }
+        }
+
+        if (isAnagrams) {
+            System.out.println("Anagrams");
+        }
+
+        // Given a string, s, matching the regular expression [A-Za-z !,?._'@]+, split the string into tokens. We define a token to be one or more consecutive English alphabetic letters. Then, print the number of tokens, followed by each token on a new line.
+        //
+        //Note: You may find the String.split method helpful in completing this challenge.
+        //
+        //Input Format
+        //
+        //A single string, s.
+        //
+        //Constraints
+        //
+        //s is composed of any of the following: English alphabetic letters, blank spaces, exclamation points (!), commas (,), question marks (?), periods (.), underscores (_), apostrophes ('), and at symbols (@).
+        //Output Format
+        //
+        //On the first line, print an integer, n, denoting the number of tokens in string s (they do not need to be unique). Next, print each of the n tokens on a new line in the same order as they appear in input string s.
+        //
+        //Sample Input
+        //
+        //He is a very very good boy, isn't he?
+        //Sample Output
+        //
+        //10
+        //He
+        //is
+        //a
+        //very
+        //very
+        //good
+        //boy
+        //isn
+        //t
+        //he
+        //Explanation
+        //
+        //We consider a token to be a contiguous segment of alphabetic characters. There are a total of  such tokens in string , and each token is printed in the same order in which it appears in string .
+
+        String sentence = scanner.nextLine().trim();
+
+        if (sentence.length() == 0) {
+            System.out.println(0);
+        } else if (sentence.length() <= 400000){
+            String[] letters = sentence.split("[\\s!,?._'@]+");
+
+            System.out.println(letters.length);
+            for (String letter : letters) {
+                System.out.println(letter);
+            }
+        }
+
+
+
+
+
     }
 }
