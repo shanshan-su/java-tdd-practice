@@ -1103,6 +1103,49 @@ public class HackerRankPracticeSolution {
         }
 
 
+        // You are given a class Solution and its main method in the editor.
+        //Your task is to create the class Add and the required methods so that the code prints the sum of the numbers passed to the function add.
+        //
+        //Note: Your add method in the Add class must print the sum as given in the Sample Output
+        //
+        //Input Format
+        //
+        //There are six lines of input, each containing an integer.
+        //
+        //Output Format
+        //
+        //There will be only four lines of output. Each line contains the sum of the integers passed as the parameters to add in the main method.
+        //
+        //Sample Input
+        //
+        //1
+        //2
+        //3
+        //4
+        //5
+        //6
+        //Sample Output
+        //
+        //1+2=3
+        //1+2+3=6
+        //1+2+3+4+5=15
+        //1+2+3+4+5+6=21
+
+        Add solution = new Add();
+
+        int number1 = scanner.nextInt();
+        int number2 = scanner.nextInt();
+        int number3 = scanner.nextInt();
+        int number4 = scanner.nextInt();
+        int number5 = scanner.nextInt();
+        int number6 = scanner.nextInt();
+
+        System.out.println(solution.add(number1, number2));
+        System.out.println(solution.add(number1, number2, number3));
+        System.out.println(solution.add(number1, number2, number3, number4, number5));
+        System.out.println(solution.add(number1, number2, number3, number4, number5, number6));
+
+        //
 
 
 
