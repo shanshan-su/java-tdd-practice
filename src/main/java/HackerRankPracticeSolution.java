@@ -3,6 +3,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
 import java.util.*;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 public class HackerRankPracticeSolution {
     public  static void main(String[] args) throws IOException, NoSuchAlgorithmException {
@@ -1145,8 +1147,44 @@ public class HackerRankPracticeSolution {
         System.out.println(solution.add(number1, number2, number3, number4, number5));
         System.out.println(solution.add(number1, number2, number3, number4, number5, number6));
 
+        // Using Regex, we can easily match or search for patterns in a text. Before searching for a pattern, we have to specify one using some well-defined syntax.
         //
+        //In this problem, you are given a pattern. You have to check whether the syntax of the given pattern is valid.
+        //
+        //Note: In this problem, a regex is only valid if you can compile it using the Pattern.compile method.
+        //
+        //Input Format
+        //
+        //The first line of input contains an integer N, denoting the number of test cases. The next N lines contain a string of any printable characters representing the pattern of a regex.
+        //
+        //Output Format
+        //
+        //For each test case, print Valid if the syntax of the given pattern is correct. Otherwise, print Invalid. Do not print the quotes.
+        //
+        //Sample Input
+        //
+        //3
+        //([A-Z])(.+)
+        //[AZ[a-z](a-z)
+        //batcatpat(nat
+        //Sample Output
+        //
+        //Valid
+        //Invalid
+        //Invalid
 
+        number = scanner.nextInt();
+
+        for (i = 1; i <= number; i++) {
+            String pattern = scanner.next();
+
+            try {
+                Pattern.compile(pattern);
+                System.out.println("Valid");
+            } catch(PatternSyntaxException exception) {
+                System.out.println("Invalid");
+            }
+        }
 
 
 
