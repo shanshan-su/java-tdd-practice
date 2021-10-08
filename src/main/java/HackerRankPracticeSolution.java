@@ -1577,6 +1577,65 @@ public class HackerRankPracticeSolution {
         }
         scanner.close();
 
+        // Task
+        //Given a base-10 integer, n, convert it to binary (base-2). Then find and print the base-10 integer denoting the maximum number of consecutive 1's in n's binary representation. When working with different bases, it is common to show the base as a subscript.
+        //
+        //Example
+        //
+        // n = 125
+        //The binary representation of 125 is 1111101. In base-2, there are 5 and 1 consecutive ones in two groups. Print the maximum, 5.
+        //
+        //Input Format
+        //
+        //A single integer, n.
+        //
+        //Constraints
+        //
+        // 1 <= n <= 1000000
+        //Output Format
+        //
+        //Print a single base-10 integer that denotes the maximum number of consecutive 1's in the binary representation of n.
+        //
+        //Sample Input 1
+        //
+        //5
+        //Sample Output 1
+        //
+        //1
+        //Sample Input 2
+        //
+        //13
+        //Sample Output 2
+        //
+        //2
+        //Explanation
+        //
+        //Sample Case 1:
+        //The binary representation of 5 is 101, so the maximum number of consecutive 1's is 1.
+        //
+        //Sample Case 2:
+        //The binary representation of 13 is 1101, so the maximum number of consecutive 1's is 2.
+
+        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        n = Integer.parseInt(bufferedReader.readLine().trim());
+        String binary = Integer.toBinaryString(n);
+
+        int count = 0;
+
+        String[] binaryArr = binary.split("0");
+
+        for(i = 0; i < binaryArr.length; i++) {
+            if (count < binaryArr[i].length()) {
+                count = binaryArr[i].length();
+            }
+        }
+
+        System.out.println(count);
+
+        bufferedReader.close();
+
+
 
 
 
