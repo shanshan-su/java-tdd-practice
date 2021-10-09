@@ -1722,13 +1722,21 @@ public class HackerRankPracticeSolution {
 
         bufferedReader.close();
 
-        for (int j = 2; j < arr.size(); j++) {
-            List<List<Integer>> glassHourArr = new ArrayList<>();
+        // get the smallest int for compare later(similar as negative infinity)
+        int maxSum = Integer.MIN_VALUE;
+        for (int j = 2; j < twoDArr.size(); j++) {
+            sum = 0;
 
             for (int k = 2; k < twoDArr.get(j).size(); k++) {
+                sum = twoDArr.get(j - 2).get(k - 2) + twoDArr.get(j - 2).get(k - 1) + twoDArr.get(j - 2).get(k) + twoDArr.get(j -  1).get(k - 1) + twoDArr.get(j).get(k - 2) + twoDArr.get(j).get(k - 1) + twoDArr.get(j).get(k);
 
+                if (sum > maxSum) {
+                    maxSum = sum;
+                }
             }
         }
+
+        System.out.println(maxSum);
 
 
 
