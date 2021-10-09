@@ -6,12 +6,13 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
 public class HackerRankPracticeSolution {
-    public  static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         Scanner scanner = new Scanner(System.in);
 
         // Given an integer n, perform the following conditional actions:
@@ -58,7 +59,7 @@ public class HackerRankPracticeSolution {
             System.out.println("Weird");
         } else if (n >= 2 && n <= 5) {
             System.out.println("Not Weird");
-        } else if  (n >= 6 && n <= 20) {
+        } else if (n >= 6 && n <= 20) {
             System.out.println("Weird");
         } else {
             System.out.println("Not Weird");
@@ -296,7 +297,7 @@ public class HackerRankPracticeSolution {
                 if (numberLong >= -128 && numberLong <= 127) {
                     results.add(0, "byte");
                 }
-            } catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.printf("%s can't be fitted anywhere.%n", num);
             }
 
@@ -331,7 +332,7 @@ public class HackerRankPracticeSolution {
         //3 Read me until end-of-file.
 
         int i = 0;
-        while(scanner.hasNext()) {
+        while (scanner.hasNext()) {
             string = scanner.nextLine();
             i++;
             System.out.printf("%d %s%n", i, string);
@@ -530,13 +531,13 @@ public class HackerRankPracticeSolution {
         Player[] player = new Player[n];
         Checker checker = new Checker();
 
-        for(i = 0; i < n; i++){
+        for (i = 0; i < n; i++) {
             player[i] = new Player(scan.next(), scan.nextInt());
         }
         scan.close();
 
         Arrays.sort(player, checker);
-        for(i = 0; i < player.length; i++){
+        for (i = 0; i < player.length; i++) {
             System.out.printf("%s %s\n", player[i].name, player[i].score);
         }
 
@@ -580,7 +581,7 @@ public class HackerRankPracticeSolution {
         int testCases = Integer.parseInt(scanner.nextLine());
 
         List<Student> studentList = new ArrayList<Student>();
-        while(testCases>0){
+        while (testCases > 0) {
             int id = scanner.nextInt();
             String fname = scanner.next();
             double cgpa = scanner.nextDouble();
@@ -595,7 +596,7 @@ public class HackerRankPracticeSolution {
             public int compare(Student student1, Student student2) {
                 if (student1.getCgpa() > student2.getCgpa()) {
                     return -1;
-                } else if  (student1.getCgpa() < student2.getCgpa()) {
+                } else if (student1.getCgpa() < student2.getCgpa()) {
                     return 1;
                 } else {
                     if (student1.getFname().equals(student2.getFname())) {
@@ -610,7 +611,7 @@ public class HackerRankPracticeSolution {
         // sort the list
         Collections.sort(studentList, comparator);
 
-        for(Student st: studentList){
+        for (Student st : studentList) {
             System.out.println(st.getFname());
         }
 
@@ -678,7 +679,7 @@ public class HackerRankPracticeSolution {
                 }
 
                 int first = deque.remove();
-                if  (!deque.contains(first)) {
+                if (!deque.contains(first)) {
                     uniqueNumbers.remove(first);
                 }
             }
@@ -1004,7 +1005,7 @@ public class HackerRankPracticeSolution {
                 }
             }
 
-            if  (count1 != count2) {
+            if (count1 != count2) {
                 isAnagrams = false;
                 System.out.println("Not Anagrams");
                 break;
@@ -1054,7 +1055,7 @@ public class HackerRankPracticeSolution {
 
         if (sentence.length() == 0) {
             System.out.println(0);
-        } else if (sentence.length() <= 400000){
+        } else if (sentence.length() <= 400000) {
             String[] letters = sentence.split("[\\s!,?._'@]+");
 
             System.out.println(letters.length);
@@ -1188,7 +1189,7 @@ public class HackerRankPracticeSolution {
             try {
                 Pattern.compile(pattern);
                 System.out.println("Valid");
-            } catch(PatternSyntaxException exception) {
+            } catch (PatternSyntaxException exception) {
                 System.out.println("Invalid");
             }
         }
@@ -1484,7 +1485,7 @@ public class HackerRankPracticeSolution {
         //Imtiaz has a secret crush
 
         testCases = Integer.parseInt(scanner.nextLine());
-        while(testCases>0){
+        while (testCases > 0) {
             String line = in.nextLine();
 
             //Write your code here
@@ -1559,14 +1560,14 @@ public class HackerRankPracticeSolution {
 
         n = scanner.nextInt();
         Map<String, Integer> phoneBook = new HashMap<>();
-        for(i = 0; i < n; i++){
+        for (i = 0; i < n; i++) {
             String name = scanner.next();
             int phone = scanner.nextInt();
             // Write code here
             phoneBook.put(name, phone);
         }
 
-        while(scanner.hasNext()){
+        while (scanner.hasNext()) {
             String s = scanner.next();
             // Write code here
             if (phoneBook.containsKey(s)) {
@@ -1616,8 +1617,6 @@ public class HackerRankPracticeSolution {
         //Sample Case 2:
         //The binary representation of 13 is 1101, so the maximum number of consecutive 1's is 2.
 
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
         n = Integer.parseInt(bufferedReader.readLine().trim());
         String binary = Integer.toBinaryString(n);
 
@@ -1625,7 +1624,7 @@ public class HackerRankPracticeSolution {
 
         String[] binaryArr = binary.split("0");
 
-        for(i = 0; i < binaryArr.length; i++) {
+        for (i = 0; i < binaryArr.length; i++) {
             if (count < binaryArr[i].length()) {
                 count = binaryArr[i].length();
             }
@@ -1634,6 +1633,102 @@ public class HackerRankPracticeSolution {
         System.out.println(count);
 
         bufferedReader.close();
+
+
+        // Context
+        //Given a 6 x 6 2D Array, A:
+        //
+        //1 1 1 0 0 0
+        //0 1 0 0 0 0
+        //1 1 1 0 0 0
+        //0 0 0 0 0 0
+        //0 0 0 0 0 0
+        //0 0 0 0 0 0
+        //We define an hourglass in A to be a subset of values with indices falling in this pattern in A's graphical representation:
+        //
+        //a b c
+        //  d
+        //e f g
+        //There are 16 hourglasses in A, and an hourglass sum is the sum of an hourglass' values.
+        //
+        //Task
+        //Calculate the hourglass sum for every hourglass in A, then print the maximum hourglass sum.
+        //
+        //Example
+        //
+        //In the array shown above, the maximum hourglass sum is 7 for the hourglass in the top left corner.
+        //
+        //Input Format
+        //
+        //There are 6 lines of input, where each line contains 6 space-separated integers that describe the 2D Array A.
+        //
+        //Constraints
+        //
+        // -9 <= A[i][j] <= 9
+        // 0  <= i, j <= 5
+        //Output Format
+        //
+        //Print the maximum hourglass sum in A.
+        //
+        //Sample Input
+        //
+        //1 1 1 0 0 0
+        //0 1 0 0 0 0
+        //1 1 1 0 0 0
+        //0 0 2 4 4 0
+        //0 0 0 2 0 0
+        //0 0 1 2 4 0
+        //Sample Output
+        //
+        //19
+        //Explanation
+        //
+        // A contains the following hourglasses:
+        //
+        //1 1 1   1 1 0   1 0 0   0 0 0
+        //  1       0       0       0
+        //1 1 1   1 1 0   1 0 0   0 0 0
+        //
+        //0 1 0   1 0 0   0 0 0   0 0 0
+        //  1       1       0       0
+        //0 0 2   0 2 4   2 4 4   4 4 0
+        //
+        //1 1 1   1 1 0   1 0 0   0 0 0
+        //  0       2       4       4
+        //0 0 0   0 0 2   0 2 0   2 0 0
+        //
+        //0 0 2   0 2 4   2 4 4   4 4 0
+        //  0       0       2       0
+        //0 0 1   0 1 2   1 2 4   2 4 0
+        //The hourglass with the maximum sum(19) is:
+        //
+        //2 4 4
+        //  2
+        //1 2 4
+
+        List<List<Integer>> twoDArr = new ArrayList<>();
+
+        IntStream.range(0, 6).forEach(index -> {
+            try {
+                twoDArr.add(
+                        Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                                .map(Integer::parseInt)
+                                .collect(toList())
+                );
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bufferedReader.close();
+
+        for (int j = 2; j < arr.size(); j++) {
+            List<List<Integer>> glassHourArr = new ArrayList<>();
+
+            for (int k = 2; k < twoDArr.get(j).size(); k++) {
+
+            }
+        }
 
 
 
