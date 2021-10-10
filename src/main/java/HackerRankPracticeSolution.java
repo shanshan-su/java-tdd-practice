@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import HackerRankPractice.NewStudent;
 
 import static java.util.stream.Collectors.toList;
 
@@ -1738,8 +1739,65 @@ public class HackerRankPracticeSolution {
 
         System.out.println(maxSum);
 
+        // Task
+        //You are given two classes, NewPerson and NewStudent, where NewPerson is the base class and NewStudent is the derived class. Completed code for NewPerson and a declaration for NewStudent are provided for you in the editor. Observe that NewStudent inherits all the properties of NewPerson.
+        //
+        //Complete the NewStudent class by writing the following:
+        //
+        //A NewStudent class constructor, which has 4 parameters:
+        //A string, firstName.
+        //A string, lastName.
+        //An integer, inNumber.
+        //An integer array (or vector) of test scores, scores.
+        //A char calculate() method that calculates a Student object's average and returns the grade character representative of their calculated average:
+        //Grading  Scale
+        //
+        // Letter       Average(a)
+        //   O        90 <= a <= 100
+        //   E        80 <= a < 90
+        //   A        70 <= a < 80
+        //   P        55 <= a < 70
+        //   D        40 <= a < 55
+        //   T           a  < 40
+        //Input Format
+        //
+        //The locked stub code in the editor reads the input and calls the NewStudent class constructor with the necessary arguments. It also calls the calculate method which takes no arguments.
+        //
+        //The first line contains firstName, lastName, and idNumber, separated by a space. The second line contains the number of test scores. The third line of space-separated integers describes scores.
+        //
+        //Constraints
+        //
+        // 1 <= length of firstName, length of LastName <= 10
+        // length of idNumber === 7
+        // 0 <= score <= 100
+        //Output Format
+        //
+        //Output is handled by the locked stub code. Your output will be correct if your NewStudent class constructor and calculate() method are properly implemented.
+        //
+        //Sample Input
+        //
+        //Heraldo Memelli 8135627
+        //2
+        //100 80
+        //Sample Output
+        //
+        // Name: Memelli, Heraldo
+        // ID: 8135627
+        // Grade: O
 
+        String firstName = scan.next();
+        String lastName = scan.next();
+        int id = scan.nextInt();
+        int numScores = scan.nextInt();
+        int[] testScores = new int[numScores];
+        for(i = 0; i < numScores; i++){
+            testScores[i] = scan.nextInt();
+        }
+        scan.close();
 
+        NewStudent s = new NewStudent(firstName, lastName, id, testScores);
+        s.printPerson();
+        System.out.println("Grade: " + s.calculate() );
 
 
 
