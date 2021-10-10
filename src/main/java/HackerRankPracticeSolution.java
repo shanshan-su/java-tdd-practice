@@ -6,12 +6,14 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import HackerRankPractice.NewStudent;
 
 import static java.util.stream.Collectors.toList;
 
 public class HackerRankPracticeSolution {
-    public  static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         Scanner scanner = new Scanner(System.in);
 
         // Given an integer n, perform the following conditional actions:
@@ -58,7 +60,7 @@ public class HackerRankPracticeSolution {
             System.out.println("Weird");
         } else if (n >= 2 && n <= 5) {
             System.out.println("Not Weird");
-        } else if  (n >= 6 && n <= 20) {
+        } else if (n >= 6 && n <= 20) {
             System.out.println("Weird");
         } else {
             System.out.println("Not Weird");
@@ -296,7 +298,7 @@ public class HackerRankPracticeSolution {
                 if (numberLong >= -128 && numberLong <= 127) {
                     results.add(0, "byte");
                 }
-            } catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.printf("%s can't be fitted anywhere.%n", num);
             }
 
@@ -331,7 +333,7 @@ public class HackerRankPracticeSolution {
         //3 Read me until end-of-file.
 
         int i = 0;
-        while(scanner.hasNext()) {
+        while (scanner.hasNext()) {
             string = scanner.nextLine();
             i++;
             System.out.printf("%d %s%n", i, string);
@@ -530,13 +532,13 @@ public class HackerRankPracticeSolution {
         Player[] player = new Player[n];
         Checker checker = new Checker();
 
-        for(i = 0; i < n; i++){
+        for (i = 0; i < n; i++) {
             player[i] = new Player(scan.next(), scan.nextInt());
         }
         scan.close();
 
         Arrays.sort(player, checker);
-        for(i = 0; i < player.length; i++){
+        for (i = 0; i < player.length; i++) {
             System.out.printf("%s %s\n", player[i].name, player[i].score);
         }
 
@@ -580,7 +582,7 @@ public class HackerRankPracticeSolution {
         int testCases = Integer.parseInt(scanner.nextLine());
 
         List<Student> studentList = new ArrayList<Student>();
-        while(testCases>0){
+        while (testCases > 0) {
             int id = scanner.nextInt();
             String fname = scanner.next();
             double cgpa = scanner.nextDouble();
@@ -595,7 +597,7 @@ public class HackerRankPracticeSolution {
             public int compare(Student student1, Student student2) {
                 if (student1.getCgpa() > student2.getCgpa()) {
                     return -1;
-                } else if  (student1.getCgpa() < student2.getCgpa()) {
+                } else if (student1.getCgpa() < student2.getCgpa()) {
                     return 1;
                 } else {
                     if (student1.getFname().equals(student2.getFname())) {
@@ -610,7 +612,7 @@ public class HackerRankPracticeSolution {
         // sort the list
         Collections.sort(studentList, comparator);
 
-        for(Student st: studentList){
+        for (Student st : studentList) {
             System.out.println(st.getFname());
         }
 
@@ -678,7 +680,7 @@ public class HackerRankPracticeSolution {
                 }
 
                 int first = deque.remove();
-                if  (!deque.contains(first)) {
+                if (!deque.contains(first)) {
                     uniqueNumbers.remove(first);
                 }
             }
@@ -1004,7 +1006,7 @@ public class HackerRankPracticeSolution {
                 }
             }
 
-            if  (count1 != count2) {
+            if (count1 != count2) {
                 isAnagrams = false;
                 System.out.println("Not Anagrams");
                 break;
@@ -1054,7 +1056,7 @@ public class HackerRankPracticeSolution {
 
         if (sentence.length() == 0) {
             System.out.println(0);
-        } else if (sentence.length() <= 400000){
+        } else if (sentence.length() <= 400000) {
             String[] letters = sentence.split("[\\s!,?._'@]+");
 
             System.out.println(letters.length);
@@ -1188,7 +1190,7 @@ public class HackerRankPracticeSolution {
             try {
                 Pattern.compile(pattern);
                 System.out.println("Valid");
-            } catch(PatternSyntaxException exception) {
+            } catch (PatternSyntaxException exception) {
                 System.out.println("Invalid");
             }
         }
@@ -1484,7 +1486,7 @@ public class HackerRankPracticeSolution {
         //Imtiaz has a secret crush
 
         testCases = Integer.parseInt(scanner.nextLine());
-        while(testCases>0){
+        while (testCases > 0) {
             String line = in.nextLine();
 
             //Write your code here
@@ -1559,14 +1561,14 @@ public class HackerRankPracticeSolution {
 
         n = scanner.nextInt();
         Map<String, Integer> phoneBook = new HashMap<>();
-        for(i = 0; i < n; i++){
+        for (i = 0; i < n; i++) {
             String name = scanner.next();
             int phone = scanner.nextInt();
             // Write code here
             phoneBook.put(name, phone);
         }
 
-        while(scanner.hasNext()){
+        while (scanner.hasNext()) {
             String s = scanner.next();
             // Write code here
             if (phoneBook.containsKey(s)) {
@@ -1616,8 +1618,6 @@ public class HackerRankPracticeSolution {
         //Sample Case 2:
         //The binary representation of 13 is 1101, so the maximum number of consecutive 1's is 2.
 
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
         n = Integer.parseInt(bufferedReader.readLine().trim());
         String binary = Integer.toBinaryString(n);
 
@@ -1625,7 +1625,7 @@ public class HackerRankPracticeSolution {
 
         String[] binaryArr = binary.split("0");
 
-        for(i = 0; i < binaryArr.length; i++) {
+        for (i = 0; i < binaryArr.length; i++) {
             if (count < binaryArr[i].length()) {
                 count = binaryArr[i].length();
             }
@@ -1636,7 +1636,168 @@ public class HackerRankPracticeSolution {
         bufferedReader.close();
 
 
+        // Context
+        //Given a 6 x 6 2D Array, A:
+        //
+        //1 1 1 0 0 0
+        //0 1 0 0 0 0
+        //1 1 1 0 0 0
+        //0 0 0 0 0 0
+        //0 0 0 0 0 0
+        //0 0 0 0 0 0
+        //We define an hourglass in A to be a subset of values with indices falling in this pattern in A's graphical representation:
+        //
+        //a b c
+        //  d
+        //e f g
+        //There are 16 hourglasses in A, and an hourglass sum is the sum of an hourglass' values.
+        //
+        //Task
+        //Calculate the hourglass sum for every hourglass in A, then print the maximum hourglass sum.
+        //
+        //Example
+        //
+        //In the array shown above, the maximum hourglass sum is 7 for the hourglass in the top left corner.
+        //
+        //Input Format
+        //
+        //There are 6 lines of input, where each line contains 6 space-separated integers that describe the 2D Array A.
+        //
+        //Constraints
+        //
+        // -9 <= A[i][j] <= 9
+        // 0  <= i, j <= 5
+        //Output Format
+        //
+        //Print the maximum hourglass sum in A.
+        //
+        //Sample Input
+        //
+        //1 1 1 0 0 0
+        //0 1 0 0 0 0
+        //1 1 1 0 0 0
+        //0 0 2 4 4 0
+        //0 0 0 2 0 0
+        //0 0 1 2 4 0
+        //Sample Output
+        //
+        //19
+        //Explanation
+        //
+        // A contains the following hourglasses:
+        //
+        //1 1 1   1 1 0   1 0 0   0 0 0
+        //  1       0       0       0
+        //1 1 1   1 1 0   1 0 0   0 0 0
+        //
+        //0 1 0   1 0 0   0 0 0   0 0 0
+        //  1       1       0       0
+        //0 0 2   0 2 4   2 4 4   4 4 0
+        //
+        //1 1 1   1 1 0   1 0 0   0 0 0
+        //  0       2       4       4
+        //0 0 0   0 0 2   0 2 0   2 0 0
+        //
+        //0 0 2   0 2 4   2 4 4   4 4 0
+        //  0       0       2       0
+        //0 0 1   0 1 2   1 2 4   2 4 0
+        //The hourglass with the maximum sum(19) is:
+        //
+        //2 4 4
+        //  2
+        //1 2 4
 
+        List<List<Integer>> twoDArr = new ArrayList<>();
+
+        IntStream.range(0, 6).forEach(index -> {
+            try {
+                twoDArr.add(
+                        Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                                .map(Integer::parseInt)
+                                .collect(toList())
+                );
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bufferedReader.close();
+
+        // get the smallest int for compare later(similar as negative infinity)
+        int maxSum = Integer.MIN_VALUE;
+        for (int j = 2; j < twoDArr.size(); j++) {
+            sum = 0;
+
+            for (int k = 2; k < twoDArr.get(j).size(); k++) {
+                sum = twoDArr.get(j - 2).get(k - 2) + twoDArr.get(j - 2).get(k - 1) + twoDArr.get(j - 2).get(k) + twoDArr.get(j -  1).get(k - 1) + twoDArr.get(j).get(k - 2) + twoDArr.get(j).get(k - 1) + twoDArr.get(j).get(k);
+
+                if (sum > maxSum) {
+                    maxSum = sum;
+                }
+            }
+        }
+
+        System.out.println(maxSum);
+
+        // Task
+        //You are given two classes, NewPerson and NewStudent, where NewPerson is the base class and NewStudent is the derived class. Completed code for NewPerson and a declaration for NewStudent are provided for you in the editor. Observe that NewStudent inherits all the properties of NewPerson.
+        //
+        //Complete the NewStudent class by writing the following:
+        //
+        //A NewStudent class constructor, which has 4 parameters:
+        //A string, firstName.
+        //A string, lastName.
+        //An integer, inNumber.
+        //An integer array (or vector) of test scores, scores.
+        //A char calculate() method that calculates a Student object's average and returns the grade character representative of their calculated average:
+        //Grading  Scale
+        //
+        // Letter       Average(a)
+        //   O        90 <= a <= 100
+        //   E        80 <= a < 90
+        //   A        70 <= a < 80
+        //   P        55 <= a < 70
+        //   D        40 <= a < 55
+        //   T           a  < 40
+        //Input Format
+        //
+        //The locked stub code in the editor reads the input and calls the NewStudent class constructor with the necessary arguments. It also calls the calculate method which takes no arguments.
+        //
+        //The first line contains firstName, lastName, and idNumber, separated by a space. The second line contains the number of test scores. The third line of space-separated integers describes scores.
+        //
+        //Constraints
+        //
+        // 1 <= length of firstName, length of LastName <= 10
+        // length of idNumber === 7
+        // 0 <= score <= 100
+        //Output Format
+        //
+        //Output is handled by the locked stub code. Your output will be correct if your NewStudent class constructor and calculate() method are properly implemented.
+        //
+        //Sample Input
+        //
+        //Heraldo Memelli 8135627
+        //2
+        //100 80
+        //Sample Output
+        //
+        // Name: Memelli, Heraldo
+        // ID: 8135627
+        // Grade: O
+
+        String firstName = scan.next();
+        String lastName = scan.next();
+        int id = scan.nextInt();
+        int numScores = scan.nextInt();
+        int[] testScores = new int[numScores];
+        for(i = 0; i < numScores; i++){
+            testScores[i] = scan.nextInt();
+        }
+        scan.close();
+
+        NewStudent s = new NewStudent(firstName, lastName, id, testScores);
+        s.printPerson();
+        System.out.println("Grade: " + s.calculate() );
 
 
 
