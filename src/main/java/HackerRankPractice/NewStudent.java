@@ -25,7 +25,7 @@ public class NewStudent extends NewPerson {
         } else if (average >= 70) {
             return "A";
         } else if (average >= 55) {
-            return "T";
+            return "P";
         } else if (average >= 40) {
             return "D";
         } else {
