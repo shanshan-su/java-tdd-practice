@@ -9,6 +9,7 @@ import java.util.regex.PatternSyntaxException;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import HackerRankPractice.Calculator;
 import HackerRankPractice.Difference;
 import HackerRankPractice.NewStudent;
 import HackerRankPractice.Node;
@@ -1889,6 +1890,96 @@ public class HackerRankPracticeSolution {
         }
         display(head);
         scanner.close();
+
+        // Task
+        //Read a string, S, and print its integer value; if S cannot be converted to an integer, print Bad String.
+        //
+        //Note: You must use the String-to-Integer and exception handling constructs built into your submission language. If you attempt to use loops/conditional statements, you will get a 0 score.
+        //
+        //Input Format
+        //
+        //A single string, S.
+        //
+        //Constraints
+        //
+        // 1 <= |S| <= 6, where |S| is the length of string S.
+        // S is composed of either lowercase letters (a - z) or decimal digits (0 - 9).
+        //Output Format
+        //
+        //Print the parsed integer value of S, or Bad String if S cannot be converted to an integer.
+        //
+        //Sample Input 0
+        //
+        //3
+        //Sample Output 0
+        //
+        //3
+        //Sample Input 1
+        //
+        //za
+        //Sample Output 1
+        //
+        //Bad String
+
+        String S = bufferedReader.readLine();
+
+        bufferedReader.close();
+
+        try {
+            int sToNum = Integer.parseInt(S);
+            System.out.println(sToNum);
+        } catch (Exception e) {
+            System.out.println("Bad String");
+        }
+
+        // Task
+        //Write a Calculator class with a single method: int power(int,int). The power method takes two integers, n and P, as parameters and returns the integer result of n**P. If either n or P is negative, then the method must throw an exception with the message: n and p should be non-negative.
+        //
+        //Note: Do not use an access modifier (e.g.: public) in the declaration for your Calculator class.
+        //
+        //Input Format
+        //
+        //Input from stdin is handled for you by the locked stub code in your editor. The first line contains an integer, T, the number of test cases. Each of the T subsequent lines describes a test case in  2 space-separated integers that denote n and P, respectively.
+        //
+        //Constraints
+        //
+        //No Test Case will result in overflow for correctly written code.
+        //Output Format
+        //
+        //Output to stdout is handled for you by the locked stub code in your editor. There are T lines of output, where each line contains the result of n**P as calculated by your Calculator class' power method.
+        //
+        //Sample Input
+        //
+        //4
+        //3 5
+        //2 4
+        //-1 -2
+        //-1 3
+        //Sample Output
+        //
+        //243
+        //16
+        //n and p should be non-negative
+        //n and p should be non-negative
+
+        int t = scanner.nextInt();
+        while (t-- > 0) {
+
+            n = scanner.nextInt();
+            int P = scanner.nextInt();
+            Calculator myCalculator = new Calculator();
+            try {
+                int ans = myCalculator.power(n, P);
+                System.out.println(ans);
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        scanner.close();
+
+
+
 
 
     }
