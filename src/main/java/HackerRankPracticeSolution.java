@@ -2092,7 +2092,102 @@ public class HackerRankPracticeSolution {
         System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName() );
         System.out.println(sum);
 
+        // day 20
+        // Task
+        //Given an array, a, of size n distinct elements, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following 3 lines:
+        //
+        //Array is sorted in numSwaps swaps.
+        //where numSwaps is the number of swaps that took place.
+        //First Element: firstElement
+        //where firstElement is the first element in the sorted array.
+        //Last Element: lastElement
+        //where lastElement is the last element in the sorted array.
+        //Hint: To complete this challenge, you will need to add a variable that keeps a running tally of all swaps that occur during execution.
+        //
+        //Example
+        //
+        // a = [4, 3, 1, 2]
+        //original a: 4 3 1 2
+        //round 1  a: 3 1 2 4 swaps this round: 3
+        //round 2  a: 1 2 3 4 swaps this round: 2
+        //round 3  a: 1 2 3 4 swaps this round: 0
+        //In the first round, the 4 is swapped at each of the 3 comparisons, ending in the last position. In the second round, the 3 is swapped at 2 of the 3 comparisons. Finally, in the third round, no swaps are made so the iterations stop. The output is the following:
+        //
+        //Array is sorted in 5 swaps.
+        //First Element: 1
+        //Last Element: 4
+        //Input Format
+        //
+        //The first line contains an integer, n, the number of elements in array a.
+        //The second line contains n space-separated integers that describe a[0], a[1], ..., a[n - 1].
+        //
+        //Constraints
+        //
+        // 2 <= n <= 600
+        // 1 <= a[i] <= 2 x 10^6, where 0 <= i < n.
+        //Output Format
+        //
+        //Print the following three lines of output:
+        //
+        //Array is sorted in numSwaps swaps.
+        //where numSwaps is the number of swaps that took place.
+        //First Element: firstElement
+        //where firstElement is the first element in the sorted array.
+        //Last Element: lastElement
+        //where lastElement is the last element in the sorted array.
+        //Sample Input 0
+        //
+        //3
+        //1 2 3
+        //Sample Output 0
+        //
+        //Array is sorted in 0 swaps.
+        //First Element: 1
+        //Last Element: 3
+        //
+        //Sample Input 1
+        //
+        //3
+        //3 2 1
+        //Sample Output 1
+        //
+        //Array is sorted in 3 swaps.
+        //First Element: 1
+        //Last Element: 3
 
+        n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> numbers = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                .map(Integer::parseInt)
+                .collect(toList());
+
+        // Write your code here
+        int totalSwaps = 0;
+
+        for (i = 0; i < n; i++) {
+            int numOfSwaps = 0;
+            for (int j = 0; j < n - 1; j++) {
+                // Swap adjacent elements if they are in decreasing order
+                if (numbers.get(j) > numbers.get(j + 1)) {
+                    int swap = numbers.get(j);
+                    numbers.set(j, numbers.get(j + 1));
+                    numbers.set(j + 1, swap);
+                    numOfSwaps++;
+                }
+            }
+
+            totalSwaps += numOfSwaps;
+
+            // If no elements were swapped during a traversal, array is sorted
+            if (numOfSwaps == 0) {
+                break;
+            }
+        }
+
+        System.out.println("Array is sorted in " + totalSwaps + " swaps.");
+        System.out.println("First Element: " + numbers.get(0));
+        System.out.println("Last Element: " + numbers.get(n - 1));
+        bufferedReader.close();
 
     }
 
