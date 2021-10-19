@@ -9,10 +9,7 @@ import java.util.regex.PatternSyntaxException;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import HackerRankPractice.Calculator;
-import HackerRankPractice.Difference;
-import HackerRankPractice.NewStudent;
-import HackerRankPractice.Node;
+import HackerRankPractice.*;
 
 import static java.util.stream.Collectors.toList;
 
@@ -2056,6 +2053,176 @@ public class HackerRankPracticeSolution {
         //Finally, print whether string s is palindrome or not.
         System.out.println( "The word, " + input + ", is "
                 + ( (!isPalindrome) ? "not a palindrome." : "a palindrome." ) );
+
+        // day 19
+        // Task
+        //The AdvancedArithmetic interface and the method declaration for the abstract divisorSum(n) method are provided for you in the editor below.
+        //
+        //Complete the implementation of Calculator class, which implements the AdvancedArithmetic interface. The implementation for the divisorSum(n) method must return the sum of all divisors of n.
+        //
+        //Example
+        //
+        // n = 25
+        //The divisors of 25 are 1, 5, 25. Their sum is 31.
+        //
+        // n = 20
+        //The divisors of 20 are 1, 2, 4, 5, 10, 20 and their sum is 42.
+        //
+        //Input Format
+        //
+        //A single line with an integer, n.
+        //
+        //Constraints
+        //
+        // 1 <= n <= 1000
+        //Output Format
+        //
+        //You are not responsible for printing anything to stdout. The locked template code in the editor below will call your code and print the necessary output.
+        //
+        //Sample Input
+        //
+        //6
+        //Sample Output
+        //
+        //I implemented: AdvancedArithmetic
+        //12
+
+        AdvancedArithmetic myCalculator = new Calculator();
+        sum = myCalculator.divisorSum(n);
+        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName() );
+        System.out.println(sum);
+
+        // day 20
+        // Task
+        //Given an array, a, of size n distinct elements, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following 3 lines:
+        //
+        //Array is sorted in numSwaps swaps.
+        //where numSwaps is the number of swaps that took place.
+        //First Element: firstElement
+        //where firstElement is the first element in the sorted array.
+        //Last Element: lastElement
+        //where lastElement is the last element in the sorted array.
+        //Hint: To complete this challenge, you will need to add a variable that keeps a running tally of all swaps that occur during execution.
+        //
+        //Example
+        //
+        // a = [4, 3, 1, 2]
+        //original a: 4 3 1 2
+        //round 1  a: 3 1 2 4 swaps this round: 3
+        //round 2  a: 1 2 3 4 swaps this round: 2
+        //round 3  a: 1 2 3 4 swaps this round: 0
+        //In the first round, the 4 is swapped at each of the 3 comparisons, ending in the last position. In the second round, the 3 is swapped at 2 of the 3 comparisons. Finally, in the third round, no swaps are made so the iterations stop. The output is the following:
+        //
+        //Array is sorted in 5 swaps.
+        //First Element: 1
+        //Last Element: 4
+        //Input Format
+        //
+        //The first line contains an integer, n, the number of elements in array a.
+        //The second line contains n space-separated integers that describe a[0], a[1], ..., a[n - 1].
+        //
+        //Constraints
+        //
+        // 2 <= n <= 600
+        // 1 <= a[i] <= 2 x 10^6, where 0 <= i < n.
+        //Output Format
+        //
+        //Print the following three lines of output:
+        //
+        //Array is sorted in numSwaps swaps.
+        //where numSwaps is the number of swaps that took place.
+        //First Element: firstElement
+        //where firstElement is the first element in the sorted array.
+        //Last Element: lastElement
+        //where lastElement is the last element in the sorted array.
+        //Sample Input 0
+        //
+        //3
+        //1 2 3
+        //Sample Output 0
+        //
+        //Array is sorted in 0 swaps.
+        //First Element: 1
+        //Last Element: 3
+        //
+        //Sample Input 1
+        //
+        //3
+        //3 2 1
+        //Sample Output 1
+        //
+        //Array is sorted in 3 swaps.
+        //First Element: 1
+        //Last Element: 3
+
+        n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> numbers = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                .map(Integer::parseInt)
+                .collect(toList());
+
+        // Write your code here
+        int totalSwaps = 0;
+
+        for (i = 0; i < n; i++) {
+            int numOfSwaps = 0;
+            for (int j = 0; j < n - 1; j++) {
+                // Swap adjacent elements if they are in decreasing order
+                if (numbers.get(j) > numbers.get(j + 1)) {
+                    int swap = numbers.get(j);
+                    numbers.set(j, numbers.get(j + 1));
+                    numbers.set(j + 1, swap);
+                    numOfSwaps++;
+                }
+            }
+
+            totalSwaps += numOfSwaps;
+
+            // If no elements were swapped during a traversal, array is sorted
+            if (numOfSwaps == 0) {
+                break;
+            }
+        }
+
+        System.out.println("Array is sorted in " + totalSwaps + " swaps.");
+        System.out.println("First Element: " + numbers.get(0));
+        System.out.println("Last Element: " + numbers.get(n - 1));
+        bufferedReader.close();
+
+        // Task
+        //Write a single generic function named printArray; this function must take an array of generic elements as a parameter (the exception to this is C++, which takes a vector). The locked Solution class in your editor tests your function.
+        //
+        //Note: You must use generics to solve this challenge. Do not write overloaded functions.
+        //
+        //Input Format
+        //
+        //The locked Solution class in your editor will pass different types of arrays to your printArray function.
+        //
+        //Constraints
+        //
+        //You must have exactly  function named printArray.
+        //Output Format
+        //
+        //Your printArray function should print each element of its generic array parameter on a new line.
+        n = scanner.nextInt();
+        Integer[] intArray = new Integer[n];
+        for (i = 0; i < n; i++) {
+            intArray[i] = scanner.nextInt();
+        }
+
+        n = scanner.nextInt();
+        String[] stringArray = new String[n];
+        for (i = 0; i < n; i++) {
+            stringArray[i] = scanner.next();
+        }
+
+        Printer<Integer> intPrinter = new Printer<Integer>();
+        Printer<String> stringPrinter = new Printer<String>();
+        intPrinter.printArray( intArray  );
+        stringPrinter.printArray( stringArray );
+        if(Printer.class.getDeclaredMethods().length > 1){
+            System.out.println("The Printer class should only have 1 method named printArray.");
+        }
 
 
     }
