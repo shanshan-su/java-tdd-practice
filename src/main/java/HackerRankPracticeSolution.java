@@ -2225,6 +2225,15 @@ public class HackerRankPracticeSolution {
         }
 
 
+        T = scanner.nextInt();
+        BinarySearchTreeNode root=null;
+        while(T-->0){
+            int data = scanner.nextInt();
+            root = insert(root,data);
+        }
+        int height=getHeight(root);
+        System.out.println(height);
+
     }
 
 
@@ -2246,6 +2255,39 @@ public class HackerRankPracticeSolution {
         while(start != null) {
             System.out.print(start.data + " ");
             start = start.next;
+        }
+    }
+
+    public static int getHeight(BinarySearchTreeNode root){
+        //Write your code here
+        int heightLeft = 0;
+        int heightRight = 0;
+
+        if (root.left != null) {
+            heightLeft = getHeight(root.left) + 1;
+        }
+        if (root.right != null) {
+            heightRight = getHeight(root.right) + 1;
+        }
+
+        return heightLeft > heightRight ? heightLeft : heightRight;
+    }
+
+    public static BinarySearchTreeNode insert(BinarySearchTreeNode root,int data){
+        if(root==null){
+            return new BinarySearchTreeNode(data);
+        }
+        else{
+            Node cur;
+            if(data<=root.data){
+                cur=insert(root.left,data);
+                root.left=cur;
+            }
+            else{
+                cur=insert(root.right,data);
+                root.right=cur;
+            }
+            return root;
         }
     }
 }
