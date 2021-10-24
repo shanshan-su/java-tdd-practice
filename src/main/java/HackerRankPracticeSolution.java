@@ -54,7 +54,7 @@ public class HackerRankPracticeSolution {
         queue.add(character);
     }
 
-    public char popCharacter(){
+    public char popCharacter() {
         return stack.pop();
     }
 
@@ -1778,7 +1778,7 @@ public class HackerRankPracticeSolution {
             sum = 0;
 
             for (int k = 2; k < twoDArr.get(j).size(); k++) {
-                sum = twoDArr.get(j - 2).get(k - 2) + twoDArr.get(j - 2).get(k - 1) + twoDArr.get(j - 2).get(k) + twoDArr.get(j -  1).get(k - 1) + twoDArr.get(j).get(k - 2) + twoDArr.get(j).get(k - 1) + twoDArr.get(j).get(k);
+                sum = twoDArr.get(j - 2).get(k - 2) + twoDArr.get(j - 2).get(k - 1) + twoDArr.get(j - 2).get(k) + twoDArr.get(j - 1).get(k - 1) + twoDArr.get(j).get(k - 2) + twoDArr.get(j).get(k - 1) + twoDArr.get(j).get(k);
 
                 if (sum > maxSum) {
                     maxSum = sum;
@@ -1839,14 +1839,14 @@ public class HackerRankPracticeSolution {
         int id = scan.nextInt();
         int numScores = scan.nextInt();
         int[] testScores = new int[numScores];
-        for(i = 0; i < numScores; i++){
+        for (i = 0; i < numScores; i++) {
             testScores[i] = scan.nextInt();
         }
         scan.close();
 
         NewStudent s = new NewStudent(firstName, lastName, id, testScores);
         s.printPerson();
-        System.out.println("Grade: " + s.calculate() );
+        System.out.println("Grade: " + s.calculate());
 
         // The absolute difference between two integers, a and b, is written as |a - b|. The maximum absolute difference between two integers in a set of positive integers, elemeents, is the largest absolute difference between any two integers in __elements.
         //
@@ -1929,9 +1929,9 @@ public class HackerRankPracticeSolution {
         Node head = null;
         N = scanner.nextInt();
 
-        while(N-- > 0) {
+        while (N-- > 0) {
             int ele = scanner.nextInt();
-            head = insert(head,ele);
+            head = insert(head, ele);
         }
         display(head);
         scanner.close();
@@ -2016,13 +2016,11 @@ public class HackerRankPracticeSolution {
             try {
                 int ans = myCalculator.power(n, P);
                 System.out.println(ans);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
         scanner.close();
-
 
 
         // day 18
@@ -2043,7 +2041,7 @@ public class HackerRankPracticeSolution {
 
         // Pop/Dequeue the chars at the head of both data structures and compare them:
         boolean isItPalindrome = true;
-        for (i = 0; i < characters.length/2; i++) {
+        for (i = 0; i < characters.length / 2; i++) {
             if (solutionPalindrome.popCharacter() != solutionPalindrome.dequeueCharacter()) {
                 isItPalindrome = false;
                 break;
@@ -2051,8 +2049,8 @@ public class HackerRankPracticeSolution {
         }
 
         //Finally, print whether string s is palindrome or not.
-        System.out.println( "The word, " + input + ", is "
-                + ( (!isPalindrome) ? "not a palindrome." : "a palindrome." ) );
+        System.out.println("The word, " + input + ", is "
+                + ((!isPalindrome) ? "not a palindrome." : "a palindrome."));
 
         // day 19
         // Task
@@ -2089,7 +2087,7 @@ public class HackerRankPracticeSolution {
 
         AdvancedArithmetic myCalculator = new Calculator();
         sum = myCalculator.divisorSum(n);
-        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName() );
+        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName());
         System.out.println(sum);
 
         // day 20
@@ -2218,20 +2216,20 @@ public class HackerRankPracticeSolution {
 
         Printer<Integer> intPrinter = new Printer<Integer>();
         Printer<String> stringPrinter = new Printer<String>();
-        intPrinter.printArray( intArray  );
-        stringPrinter.printArray( stringArray );
-        if(Printer.class.getDeclaredMethods().length > 1){
+        intPrinter.printArray(intArray);
+        stringPrinter.printArray(stringArray);
+        if (Printer.class.getDeclaredMethods().length > 1) {
             System.out.println("The Printer class should only have 1 method named printArray.");
         }
 
 
         T = scanner.nextInt();
         BinarySearchTreeNode root = null;
-        while(T-->0){
+        while (T-- > 0) {
             int data = scanner.nextInt();
-            root = insert(root,data);
+            root = insert(root, data);
         }
-        int height=getHeight(root);
+        int height = getHeight(root);
         System.out.println(height);
 
         // Day 23 - Task
@@ -2278,9 +2276,9 @@ public class HackerRankPracticeSolution {
 
         T = scanner.nextInt();
         root = null;
-        while(T-- > 0){
-            int data=scanner.nextInt();
-            root = insert(root,data);
+        while (T-- > 0) {
+            int data = scanner.nextInt();
+            root = insert(root, data);
         }
         levelOrder(root);
 
@@ -2322,9 +2320,9 @@ public class HackerRankPracticeSolution {
 
         head = null;
         T = scanner.nextInt();
-        while(T-- > 0){
+        while (T-- > 0) {
             int ele = scanner.nextInt();
-            head = insert(head,ele);
+            head = insert(head, ele);
         }
         head = removeDuplicates(head);
         display(head);
@@ -2370,21 +2368,30 @@ public class HackerRankPracticeSolution {
         // 7 is only divisible 1 and itself, so we print Prime on a new line.
         int numberNum = scanner.nextInt();
 
-        for (i = 1; i <= numberNum; i++) {
+        for (i = 0; i < numberNum; i++) {
             int numToCheck = scanner.nextInt();
+            double squareRoot = Math.sqrt(numToCheck);
 
-            for (int j = 2; j < numToCheck / 2; j++) {
-                if (numToCheck % i == 0)  {
-                    numToCheck = 1;
+            // check if numTocheck is 1
+            if (numToCheck == 1 || numToCheck != 2 && numToCheck % 2 == 0 || squareRoot == (int) squareRoot) {
+                System.out.println("Not prime");
+                continue;
+            }
+            boolean isPrime = true;
+
+            // check id numToCheck can be divided by 2 to Math.sqrt(numToCheck)
+            for (int j = 2; j < squareRoot; j++) {
+                if (numToCheck % j == 0) {
+                    isPrime = false;
+                    break;
                 }
             }
 
-            if (numToCheck == 1) {
-                System.out.println("Not prime");
-            } else {
+            if (isPrime) {
                 System.out.println("Prime");
+            } else {
+                System.out.println("Not prime");
             }
-
         }
 
         // Day 26 - Task
@@ -2440,8 +2447,10 @@ public class HackerRankPracticeSolution {
 
         int fine;
 
-        if (dueYear != returnedYear) {
+        if (dueYear < returnedYear) {
             fine = 10000;
+        } else if (dueYear > returnedYear) {
+            fine = 0;
         } else {
             if (dueMonth > returnedMonth) {
                 fine = 0;
@@ -2459,16 +2468,10 @@ public class HackerRankPracticeSolution {
         System.out.println(fine);
 
 
-
-
-
-
     }
 
 
-
-
-    public static Node insert(Node head,int data) {
+    public static Node insert(Node head, int data) {
         //Complete this method
         if (head == null) {
             return new Node(data);
@@ -2481,13 +2484,13 @@ public class HackerRankPracticeSolution {
 
     public static void display(Node head) {
         Node start = head;
-        while(start != null) {
+        while (start != null) {
             System.out.print(start.data + " ");
             start = start.next;
         }
     }
 
-    public static int getHeight(BinarySearchTreeNode root){
+    public static int getHeight(BinarySearchTreeNode root) {
         //Write your code here
         int heightLeft = 0;
         int heightRight = 0;
@@ -2502,33 +2505,31 @@ public class HackerRankPracticeSolution {
         return heightLeft > heightRight ? heightLeft : heightRight;
     }
 
-    public static BinarySearchTreeNode insert(BinarySearchTreeNode root,int data){
-        if(root==null){
+    public static BinarySearchTreeNode insert(BinarySearchTreeNode root, int data) {
+        if (root == null) {
             return new BinarySearchTreeNode(data);
-        }
-        else{
+        } else {
             BinarySearchTreeNode cur;
-            if(data<=root.data){
-                cur=insert(root.left,data);
-                root.left=cur;
-            }
-            else{
-                cur=insert(root.right,data);
-                root.right=cur;
+            if (data <= root.data) {
+                cur = insert(root.left, data);
+                root.left = cur;
+            } else {
+                cur = insert(root.right, data);
+                root.right = cur;
             }
             return root;
         }
     }
 
     // day 23: BST Level-Order Traversal
-    public static void levelOrder(BinarySearchTreeNode root){
+    public static void levelOrder(BinarySearchTreeNode root) {
         //Write your code here
         Queue<BinarySearchTreeNode> queue = new LinkedList();
         if (root != null) {
             queue.add(root);
         }
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             // get the current element in queue and then print out its data
             BinarySearchTreeNode current = queue.remove();
             System.out.print(current.data + " ");
