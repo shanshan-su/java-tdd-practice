@@ -2553,7 +2553,7 @@ public class HackerRankPracticeSolution {
 
                 String emailID = firstMultipleInput[1];
 
-                if (emailID.contains("gmail.com")) {
+                if (emailID.contains("@gmail.com")) {
                     firstNames.add(firstNameString);
                 }
             } catch (IOException ex) {
@@ -2564,14 +2564,89 @@ public class HackerRankPracticeSolution {
         Collections.sort(firstNames);
 
         for (String firstNameString : firstNames) {
-            System.out.println(firstName);
+            System.out.println(firstNameString);
         }
 
         bufferedReader.close();
 
+        // // Regax solution to Day 28
+        // int num = scanner.nextInt();
+        //        String emailRegEx = ".+@gmail\\.com$";
+        //        Pattern pattern = Pattern.compile(emailRegEx);
+        //        List<String> list = new ArrayList();
+        //        for (int i = 0; i < num; i++){
+        //            String name = scanner.next();
+        //            String email = scanner.next();
+        //            Matcher matcher = pattern.matcher(email);
+        //            if (matcher.find()){
+        //                list.add(name);
+        //            }
+        //        }
+        //        Collections.sort(list);
+        //        for (String name : list){
+        //            System.out.println(name);
+        //        }
 
+        // Day 29 - Task
+        //Given set S = {1, 2, 3, ..., N}. Find two integers, A and B (where A < B), from set S such that the value of A&B is the maximum possible and also less than a given integer, K. In this case, & represents the bitwise AND operator.
+        //
+        //Function Description
+        //Complete the bitwiseAnd function in the editor below.
+        //
+        //bitwiseAnd has the following paramter(s):
+        //- int N: the maximum integer to consider
+        //- int K: the limit of the result, inclusive
+        //
+        //Returns
+        //- int: the maximum value of A&B within the limit.
+        //
+        //Input Format
+        //
+        //The first line contains an integer, T, the number of test cases.
+        //Each of the T subsequent lines defines a test case as 2 space-separated integers, N and K, respectively.
+        //
+        //Constraints
+        //
+        // 1 <= T <= 1000
+        // 2 <= N <= 1000
+        // 2 <= K <= N
+        //Sample Input
+        //
+        //STDIN   Function
+        //-----   --------
+        //3       T = 3
+        //5 2     N = 5, K = 2
+        //8 5     N = 8, K = 5
+        //2 2     N = 8, K = 5
+        //Sample Output
+        //
+        //1
+        //4
+        //0
 
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
+        t = Integer.parseInt(bufferedReader.readLine().trim());
+
+        IntStream.range(0, t).forEach(tItr -> {
+            try {
+                String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+                int num1 = Integer.parseInt(firstMultipleInput[0]);
+
+                int num2 = Integer.parseInt(firstMultipleInput[1]);
+
+                int res = Result.bitwiseAnd(num1, num2);
+
+                bufferedWriter.write(String.valueOf(res));
+                bufferedWriter.newLine();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bufferedReader.close();
+        bufferedWriter.close();
 
 
 
@@ -2770,6 +2845,5 @@ public class HackerRankPracticeSolution {
             throw new AssertionError("result is different than the expected result");
         }
     }
-
 
 }
