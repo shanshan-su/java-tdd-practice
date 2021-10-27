@@ -61,6 +61,33 @@ public class Result {
         return n * factorial(n - 1);
     }
 
+    // Day 29 - Bitwise AND
+    /*
+     * Complete the 'bitwiseAnd' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER N
+     *  2. INTEGER K
+     */
+    public static int bitwiseAnd(int N, int K) {
+        // Write your code here
+        int resultInRange = 0;
+
+        for (int i = 1; i <= N; i++) {
+            int result;
+            for (int j = i + 1; j <= N; j++) {
+                result = i & j;
+
+                if (result < K && result > resultInRange) {
+                    resultInRange = result;
+                }
+            }
+        }
+
+        return resultInRange;
+    }
+
 
 
 

@@ -54,7 +54,7 @@ public class HackerRankPracticeSolution {
         queue.add(character);
     }
 
-    public char popCharacter(){
+    public char popCharacter() {
         return stack.pop();
     }
 
@@ -1778,7 +1778,7 @@ public class HackerRankPracticeSolution {
             sum = 0;
 
             for (int k = 2; k < twoDArr.get(j).size(); k++) {
-                sum = twoDArr.get(j - 2).get(k - 2) + twoDArr.get(j - 2).get(k - 1) + twoDArr.get(j - 2).get(k) + twoDArr.get(j -  1).get(k - 1) + twoDArr.get(j).get(k - 2) + twoDArr.get(j).get(k - 1) + twoDArr.get(j).get(k);
+                sum = twoDArr.get(j - 2).get(k - 2) + twoDArr.get(j - 2).get(k - 1) + twoDArr.get(j - 2).get(k) + twoDArr.get(j - 1).get(k - 1) + twoDArr.get(j).get(k - 2) + twoDArr.get(j).get(k - 1) + twoDArr.get(j).get(k);
 
                 if (sum > maxSum) {
                     maxSum = sum;
@@ -1839,14 +1839,14 @@ public class HackerRankPracticeSolution {
         int id = scan.nextInt();
         int numScores = scan.nextInt();
         int[] testScores = new int[numScores];
-        for(i = 0; i < numScores; i++){
+        for (i = 0; i < numScores; i++) {
             testScores[i] = scan.nextInt();
         }
         scan.close();
 
         NewStudent s = new NewStudent(firstName, lastName, id, testScores);
         s.printPerson();
-        System.out.println("Grade: " + s.calculate() );
+        System.out.println("Grade: " + s.calculate());
 
         // The absolute difference between two integers, a and b, is written as |a - b|. The maximum absolute difference between two integers in a set of positive integers, elemeents, is the largest absolute difference between any two integers in __elements.
         //
@@ -1929,9 +1929,9 @@ public class HackerRankPracticeSolution {
         Node head = null;
         N = scanner.nextInt();
 
-        while(N-- > 0) {
+        while (N-- > 0) {
             int ele = scanner.nextInt();
-            head = insert(head,ele);
+            head = insert(head, ele);
         }
         display(head);
         scanner.close();
@@ -2016,13 +2016,11 @@ public class HackerRankPracticeSolution {
             try {
                 int ans = myCalculator.power(n, P);
                 System.out.println(ans);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
         scanner.close();
-
 
 
         // day 18
@@ -2043,7 +2041,7 @@ public class HackerRankPracticeSolution {
 
         // Pop/Dequeue the chars at the head of both data structures and compare them:
         boolean isItPalindrome = true;
-        for (i = 0; i < characters.length/2; i++) {
+        for (i = 0; i < characters.length / 2; i++) {
             if (solutionPalindrome.popCharacter() != solutionPalindrome.dequeueCharacter()) {
                 isItPalindrome = false;
                 break;
@@ -2051,8 +2049,8 @@ public class HackerRankPracticeSolution {
         }
 
         //Finally, print whether string s is palindrome or not.
-        System.out.println( "The word, " + input + ", is "
-                + ( (!isPalindrome) ? "not a palindrome." : "a palindrome." ) );
+        System.out.println("The word, " + input + ", is "
+                + ((!isPalindrome) ? "not a palindrome." : "a palindrome."));
 
         // day 19
         // Task
@@ -2089,7 +2087,7 @@ public class HackerRankPracticeSolution {
 
         AdvancedArithmetic myCalculator = new Calculator();
         sum = myCalculator.divisorSum(n);
-        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName() );
+        System.out.println("I implemented: " + myCalculator.getClass().getInterfaces()[0].getName());
         System.out.println(sum);
 
         // day 20
@@ -2218,20 +2216,20 @@ public class HackerRankPracticeSolution {
 
         Printer<Integer> intPrinter = new Printer<Integer>();
         Printer<String> stringPrinter = new Printer<String>();
-        intPrinter.printArray( intArray  );
-        stringPrinter.printArray( stringArray );
-        if(Printer.class.getDeclaredMethods().length > 1){
+        intPrinter.printArray(intArray);
+        stringPrinter.printArray(stringArray);
+        if (Printer.class.getDeclaredMethods().length > 1) {
             System.out.println("The Printer class should only have 1 method named printArray.");
         }
 
 
         T = scanner.nextInt();
         BinarySearchTreeNode root = null;
-        while(T-->0){
+        while (T-- > 0) {
             int data = scanner.nextInt();
-            root = insert(root,data);
+            root = insert(root, data);
         }
-        int height=getHeight(root);
+        int height = getHeight(root);
         System.out.println(height);
 
         // Day 23 - Task
@@ -2278,9 +2276,9 @@ public class HackerRankPracticeSolution {
 
         T = scanner.nextInt();
         root = null;
-        while(T-- > 0){
-            int data=scanner.nextInt();
-            root = insert(root,data);
+        while (T-- > 0) {
+            int data = scanner.nextInt();
+            root = insert(root, data);
         }
         levelOrder(root);
 
@@ -2322,9 +2320,9 @@ public class HackerRankPracticeSolution {
 
         head = null;
         T = scanner.nextInt();
-        while(T-- > 0){
+        while (T-- > 0) {
             int ele = scanner.nextInt();
-            head = insert(head,ele);
+            head = insert(head, ele);
         }
         head = removeDuplicates(head);
         display(head);
@@ -2370,21 +2368,30 @@ public class HackerRankPracticeSolution {
         // 7 is only divisible 1 and itself, so we print Prime on a new line.
         int numberNum = scanner.nextInt();
 
-        for (i = 1; i <= numberNum; i++) {
+        for (i = 0; i < numberNum; i++) {
             int numToCheck = scanner.nextInt();
+            double squareRoot = Math.sqrt(numToCheck);
 
-            for (int j = 2; j < numToCheck / 2; j++) {
-                if (numToCheck % i == 0)  {
-                    numToCheck = 1;
+            // check if numTocheck is 1
+            if (numToCheck == 1 || numToCheck != 2 && numToCheck % 2 == 0 || squareRoot == (int) squareRoot) {
+                System.out.println("Not prime");
+                continue;
+            }
+            boolean isPrime = true;
+
+            // check id numToCheck can be divided by 2 to Math.sqrt(numToCheck)
+            for (int j = 2; j < squareRoot; j++) {
+                if (numToCheck % j == 0) {
+                    isPrime = false;
+                    break;
                 }
             }
 
-            if (numToCheck == 1) {
-                System.out.println("Not prime");
-            } else {
+            if (isPrime) {
                 System.out.println("Prime");
+            } else {
+                System.out.println("Not prime");
             }
-
         }
 
         // Day 26 - Task
@@ -2440,8 +2447,10 @@ public class HackerRankPracticeSolution {
 
         int fine;
 
-        if (dueYear != returnedYear) {
+        if (dueYear < returnedYear) {
             fine = 10000;
+        } else if (dueYear > returnedYear) {
+            fine = 0;
         } else {
             if (dueMonth > returnedMonth) {
                 fine = 0;
@@ -2458,6 +2467,188 @@ public class HackerRankPracticeSolution {
 
         System.out.println(fine);
 
+        // Day 27 - This problem is about unit testing.
+        //
+        //Your company needs a function that meets the following requirements:
+        //
+        //For a given array of n integers, the function returns the index of the element with the minimum value in the array. If there is more than one element with the minimum value, it returns the smallest one.
+        //If an empty array is passed to the function, it raises an exception. A colleague has written this method. The implementation in Python is listed below. Implementations in other languages can be found in the code template.
+        //def minimum_index(seq):
+        //    if len(seq) == 0:
+        //        raise ValueError("Cannot get the minimum value index from an empty sequence")
+        //    min_idx = 0
+        //    for i in range(1, len(seq)):
+        //        if a[i] < a[min_idx]:
+        //            min_idx = i
+        //    return min_idx
+        //A coworker has prepared functions that will perform the tests and validate return values. Finish the implementation of 3 classes to provide data and expected results for the tests.
+        //
+        //Complete the following methods.
+        //
+        //In the class TestDataEmptyArray:
+        //
+        //get_array() returns an empty array
+        //In the class TestDataUniqueValues:
+        //
+        //get_array() returns an array of size at least 2 with all unique elements
+        //get_expected_result() returns the expected minimum value index for this array
+        //In the class TestDataExactlyTwoDifferentMinimums:
+        //
+        //get_array() returns an array where the minimum value occurs at exactly 2 indices
+        //get_expected_result() returns the expected index
+        //Take a look at the code template to see the exact implementation of functions that your colleague already implemented.
+        //
+        //Note: The arrays are indexed from 0.
+
+        TestWithEmptyArray();
+        TestWithUniqueValues();
+        TestWithExactlyTwoDifferentMinimums();
+        System.out.println("OK");
+
+        // Day 28 - Task
+        //Consider a database table, Emails, which has the attributes First Name and Email ID. Given N rows of data simulating the Emails table, print an alphabetically-ordered list of people whose email address ends in @gmail.com.
+        //
+        //Input Format
+        //
+        //The first line contains an integer, N, total number of rows in the table.
+        //Each of the N subsequent lines contains 2 space-separated strings denoting a person's first name and email ID, respectively.
+        //
+        //Constraints
+        //
+        // 2 <= N <= 30
+        //Each of the first names consists of lower case letters [a - z] only.
+        //Each of the email IDs consists of lower case letters [a - z], @ and . only.
+        //The length of the first name is no longer than 20.
+        //The length of the email ID is no longer than 50.
+        //Output Format
+        //
+        //Print an alphabetically-ordered list of first names for every user with a gmail account. Each name must be printed on a new line.
+        //
+        //Sample Input
+        //
+        //6
+        //riya riya@gmail.com
+        //julia julia@julia.me
+        //julia sjulia@gmail.com
+        //julia julia@gmail.com
+        //samantha samantha@gmail.com
+        //tanya tanya@gmail.com
+        //Sample Output
+        //
+        //julia
+        //julia
+        //riya
+        //samantha
+        //tanya
+
+        N = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<String> firstNames = new ArrayList<>();
+
+        IntStream.range(0, N).forEach(NItr -> {
+            try {
+                String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+                String firstNameString = firstMultipleInput[0];
+
+                String emailID = firstMultipleInput[1];
+
+                if (emailID.contains("@gmail.com")) {
+                    firstNames.add(firstNameString);
+                }
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        Collections.sort(firstNames);
+
+        for (String firstNameString : firstNames) {
+            System.out.println(firstNameString);
+        }
+
+        bufferedReader.close();
+
+        // // Regax solution to Day 28
+        // int num = scanner.nextInt();
+        //        String emailRegEx = ".+@gmail\\.com$";
+        //        Pattern pattern = Pattern.compile(emailRegEx);
+        //        List<String> list = new ArrayList();
+        //        for (int i = 0; i < num; i++){
+        //            String name = scanner.next();
+        //            String email = scanner.next();
+        //            Matcher matcher = pattern.matcher(email);
+        //            if (matcher.find()){
+        //                list.add(name);
+        //            }
+        //        }
+        //        Collections.sort(list);
+        //        for (String name : list){
+        //            System.out.println(name);
+        //        }
+
+        // Day 29 - Task
+        //Given set S = {1, 2, 3, ..., N}. Find two integers, A and B (where A < B), from set S such that the value of A&B is the maximum possible and also less than a given integer, K. In this case, & represents the bitwise AND operator.
+        //
+        //Function Description
+        //Complete the bitwiseAnd function in the editor below.
+        //
+        //bitwiseAnd has the following paramter(s):
+        //- int N: the maximum integer to consider
+        //- int K: the limit of the result, inclusive
+        //
+        //Returns
+        //- int: the maximum value of A&B within the limit.
+        //
+        //Input Format
+        //
+        //The first line contains an integer, T, the number of test cases.
+        //Each of the T subsequent lines defines a test case as 2 space-separated integers, N and K, respectively.
+        //
+        //Constraints
+        //
+        // 1 <= T <= 1000
+        // 2 <= N <= 1000
+        // 2 <= K <= N
+        //Sample Input
+        //
+        //STDIN   Function
+        //-----   --------
+        //3       T = 3
+        //5 2     N = 5, K = 2
+        //8 5     N = 8, K = 5
+        //2 2     N = 8, K = 5
+        //Sample Output
+        //
+        //1
+        //4
+        //0
+
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        t = Integer.parseInt(bufferedReader.readLine().trim());
+
+        IntStream.range(0, t).forEach(tItr -> {
+            try {
+                String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+                int num1 = Integer.parseInt(firstMultipleInput[0]);
+
+                int num2 = Integer.parseInt(firstMultipleInput[1]);
+
+                int res = Result.bitwiseAnd(num1, num2);
+
+                bufferedWriter.write(String.valueOf(res));
+                bufferedWriter.newLine();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bufferedReader.close();
+        bufferedWriter.close();
+
+
 
 
 
@@ -2466,9 +2657,7 @@ public class HackerRankPracticeSolution {
     }
 
 
-
-
-    public static Node insert(Node head,int data) {
+    public static Node insert(Node head, int data) {
         //Complete this method
         if (head == null) {
             return new Node(data);
@@ -2481,13 +2670,13 @@ public class HackerRankPracticeSolution {
 
     public static void display(Node head) {
         Node start = head;
-        while(start != null) {
+        while (start != null) {
             System.out.print(start.data + " ");
             start = start.next;
         }
     }
 
-    public static int getHeight(BinarySearchTreeNode root){
+    public static int getHeight(BinarySearchTreeNode root) {
         //Write your code here
         int heightLeft = 0;
         int heightRight = 0;
@@ -2502,33 +2691,31 @@ public class HackerRankPracticeSolution {
         return heightLeft > heightRight ? heightLeft : heightRight;
     }
 
-    public static BinarySearchTreeNode insert(BinarySearchTreeNode root,int data){
-        if(root==null){
+    public static BinarySearchTreeNode insert(BinarySearchTreeNode root, int data) {
+        if (root == null) {
             return new BinarySearchTreeNode(data);
-        }
-        else{
+        } else {
             BinarySearchTreeNode cur;
-            if(data<=root.data){
-                cur=insert(root.left,data);
-                root.left=cur;
-            }
-            else{
-                cur=insert(root.right,data);
-                root.right=cur;
+            if (data <= root.data) {
+                cur = insert(root.left, data);
+                root.left = cur;
+            } else {
+                cur = insert(root.right, data);
+                root.right = cur;
             }
             return root;
         }
     }
 
     // day 23: BST Level-Order Traversal
-    public static void levelOrder(BinarySearchTreeNode root){
+    public static void levelOrder(BinarySearchTreeNode root) {
         //Write your code here
         Queue<BinarySearchTreeNode> queue = new LinkedList();
         if (root != null) {
             queue.add(root);
         }
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             // get the current element in queue and then print out its data
             BinarySearchTreeNode current = queue.remove();
             System.out.print(current.data + " ");
@@ -2560,4 +2747,103 @@ public class HackerRankPracticeSolution {
 
         return head;
     }
+
+    // Day 27
+    public static int minimum_index(int[] seq) {
+        if (seq.length == 0) {
+            throw new IllegalArgumentException("Cannot get the minimum value index from an empty sequence");
+        }
+        int min_idx = 0;
+        for (int i = 1; i < seq.length; ++i) {
+            if (seq[i] < seq[min_idx]) {
+                min_idx = i;
+            }
+        }
+        return min_idx;
+    }
+
+    static class TestDataEmptyArray {
+        public static int[] get_array() {
+            int[] arr = {};
+            return arr;
+        }
+    }
+
+    static class TestDataUniqueValues {
+
+        static int[] arr = {1, 2, 3, 4, 5};
+
+        public static int[] get_array() {
+            return arr;
+        }
+
+        public static int get_expected_result() {
+            return 0;
+        }
+    }
+
+    static class TestDataExactlyTwoDifferentMinimums {
+
+        static int[] arr = {0, 0, 1};
+
+        public static int[] get_array() {
+            return arr;
+        }
+
+        public static int get_expected_result() {
+            return 0;
+        }
+    }
+
+
+    public static void TestWithEmptyArray() {
+        try {
+            int[] seq = TestDataEmptyArray.get_array();
+            int result = minimum_index(seq);
+        } catch (IllegalArgumentException e) {
+            return;
+        }
+        throw new AssertionError("Exception wasn't thrown as expected");
+    }
+
+    public static void TestWithUniqueValues() {
+        int[] seq = TestDataUniqueValues.get_array();
+        if (seq.length < 2) {
+            throw new AssertionError("less than 2 elements in the array");
+        }
+
+        Integer[] tmp = new Integer[seq.length];
+        for (int i = 0; i < seq.length; ++i) {
+            tmp[i] = Integer.valueOf(seq[i]);
+        }
+        if (!((new LinkedHashSet<Integer>(Arrays.asList(tmp))).size() == seq.length)) {
+            throw new AssertionError("not all values are unique");
+        }
+
+        int expected_result = TestDataUniqueValues.get_expected_result();
+        int result = minimum_index(seq);
+        if (result != expected_result) {
+            throw new AssertionError("result is different than the expected result");
+        }
+    }
+
+    public static void TestWithExactlyTwoDifferentMinimums() {
+        int[] seq = TestDataExactlyTwoDifferentMinimums.get_array();
+        if (seq.length < 2) {
+            throw new AssertionError("less than 2 elements in the array");
+        }
+
+        int[] tmp = seq.clone();
+        Arrays.sort(tmp);
+        if (!(tmp[0] == tmp[1] && (tmp.length == 2 || tmp[1] < tmp[2]))) {
+            throw new AssertionError("there are not exactly two minimums in the array");
+        }
+
+        int expected_result = TestDataExactlyTwoDifferentMinimums.get_expected_result();
+        int result = minimum_index(seq);
+        if (result != expected_result) {
+            throw new AssertionError("result is different than the expected result");
+        }
+    }
+
 }
